@@ -19,15 +19,13 @@ export default function App() {
     <div
       style={{
         fontFamily: "Inter, sans-serif",
-        minHeight: "100vh",
-        color: "#fff",
-        background:
-          "radial-gradient(circle at top left, #1d1d1d, #0c0c0c 60%)",
+        minHeight: "100dvh",
         display: "flex",
         flexDirection: "column",
+        overflowX: "hidden",
       }}
     >
-      {/* NAV */}
+      {/* NAVBAR */}
       <header
         style={{
           position: "fixed",
