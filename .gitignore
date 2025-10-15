@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 dionova-*.json
+
+bemoservicedb-*.json
+dionova-*.json
