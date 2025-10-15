@@ -1,38 +1,76 @@
 import { NavLink, Outlet } from "react-router-dom";
 
-const link = "px-3 py-2 rounded-md text-sm font-medium";
-const active = "background: #000; color: #fff;";
-const inactive = "border:1px solid #000; color:#000;";
-
 export default function App() {
+  const linkStyle = {
+    padding: "10px 18px",
+    borderRadius: 6,
+    fontWeight: 500,
+    textDecoration: "none",
+    transition: "0.2s",
+  };
+
   return (
-    <div style={{ maxWidth: 960, margin: "0 auto", padding: 24 }}>
-      <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
-        <div>
-          <span style={{ opacity: .7, fontSize: 12 }}>DioNova</span>
-          <h1 style={{ margin: "6px 0 0" }}>Official Site</h1>
-        </div>
-        <nav style={{ display: "flex", gap: 8 }}>
-          <NavLink to="/" end
-            style={({ isActive }) => ({ ...(isActive ? {} : {}), padding:"8px 12px", borderRadius:8, ...(isActive?{background:"#000",color:"#fff"}:{border:"1px solid #000",color:"#000"})})}>
-            About
-          </NavLink>
-          <NavLink to="/dj"
-            style={({ isActive }) => ({ padding:"8px 12px", borderRadius:8, ...(isActive?{background:"#000",color:"#fff"}:{border:"1px solid #000",color:"#000"})})}>
-            DJ
-          </NavLink>
-          <NavLink to="/model"
-            style={({ isActive }) => ({ padding:"8px 12px", borderRadius:8, ...(isActive?{background:"#000",color:"#fff"}:{border:"1px solid #000",color:"#000"})})}>
-            Model
-          </NavLink>
-        </nav>
+    <div style={{ fontFamily: "Inter, sans-serif", color: "#111" }}>
+      {/* NAVBAR */}
+      <header
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: 60,
+          background: "#fff",
+          borderBottom: "1px solid #e5e5e5",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 24,
+          zIndex: 100,
+        }}
+      >
+        {["/", "/dj", "/model"].map((path, i) => {
+          const names = ["About", "DJ", "Model"];
+          return (
+            <NavLink
+              key={path}
+              to={path}
+              end={path === "/"}
+              style={({ isActive }) => ({
+                ...linkStyle,
+                color: isActive ? "#fff" : "#000",
+                background: isActive ? "#000" : "transparent",
+                border: isActive ? "1px solid #000" : "1px solid #000",
+              })}
+            >
+              {names[i]}
+            </NavLink>
+          );
+        })}
       </header>
 
-      <main style={{ marginTop: 24 }}>
+      {/* MAIN CONTENT */}
+      <main
+        style={{
+          marginTop: 100,
+          maxWidth: 900,
+          marginInline: "auto",
+          padding: "0 24px",
+          lineHeight: 1.6,
+        }}
+      >
         <Outlet />
       </main>
 
-      <footer style={{ marginTop: 48, opacity: .6 }}>
+      {/* FOOTER */}
+      <footer
+        style={{
+          textAlign: "center",
+          opacity: 0.6,
+          marginTop: 80,
+          padding: "20px 0 40px",
+          borderTop: "1px solid #eee",
+        }}
+      >
         © {new Date().getFullYear()} DioNova
       </footer>
     </div>
