@@ -1,98 +1,60 @@
 import { NavLink, Outlet } from "react-router-dom";
 
 export default function App() {
-  const navLinks = [
-    { to: "/", label: "About" },
+  const links = [
+    { to: "/", label: "About", end: true },
     { to: "/dj", label: "DJ" },
     { to: "/model", label: "Model" },
+    { to: "/contact", label: "Contact" },
   ];
 
-  const linkBase = {
-    padding: "10px 18px",
-    borderRadius: 6,
-    fontWeight: 500,
-    textDecoration: "none",
-    transition: "0.25s",
-  };
-
   return (
-    <div
-      style={{
-        fontFamily: "Inter, sans-serif",
-        minHeight: "100dvh",
-        display: "flex",
-        flexDirection: "column",
-        overflowX: "hidden",
-      }}
-    >
-      {/* NAVBAR */}
+    <div style={{ minHeight: "100dvh", display: "flex", flexDirection: "column" }}>
+      {/* TOPBAR */}
       <header
         style={{
           position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: 70,
-          background: "rgba(0,0,0,0.6)",
+          top: 0, left: 0, width: "100%", height: 68,
+          background: "rgba(255,255,255,0.9)",
           backdropFilter: "blur(6px)",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: 24,
-          zIndex: 50,
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          borderBottom: "1px solid #e7e0d6",
+          zIndex: 50
         }}
       >
-        {navLinks.map(({ to, label }) => (
-          <NavLink
-            key={to}
-            to={to}
-            end={to === "/"}
-            style={({ isActive }) => ({
-              ...linkBase,
-              color: isActive ? "#000" : "#fff",
-              background: isActive ? "#fff" : "transparent",
-              border: "1px solid rgba(255,255,255,0.4)",
-            })}
-          >
-            {label}
-          </NavLink>
-        ))}
+        <div className="container" style={{height:"100%", display:"flex", alignItems:"center", justifyContent:"space-between", gap:16}}>
+          <strong style={{letterSpacing:.4}}>DioNova</strong>
+          <nav style={{ display: "flex", gap: 10 }}>
+            {links.map(({ to, label, end }) => (
+              <NavLink
+                key={to}
+                to={to}
+                end={end}
+                style={({ isActive }) => ({
+                  padding: "10px 16px",
+                  borderRadius: 8,
+                  border: "1px solid var(--line)",
+                  background: isActive ? "var(--accent)" : "transparent",
+                  color: isActive ? "#fff" : "var(--ink)",
+                  fontWeight: 500,
+                  transition: ".2s"
+                })}
+              >
+                {label}
+              </NavLink>
+            ))}
+          </nav>
+        </div>
       </header>
 
-      {/* MAIN */}
-      <main
-        style={{
-          flex: 1,
-          marginTop: 100,
-          maxWidth: 900,
-          marginInline: "auto",
-          padding: "0 24px",
-        }}
-      >
-        <div
-          style={{
-            background: "rgba(255,255,255,0.05)",
-            border: "1px solid rgba(255,255,255,0.08)",
-            borderRadius: 16,
-            padding: 32,
-            boxShadow: "0 0 40px rgba(0,0,0,0.3)",
-          }}
-        >
+      {/* PAGE */}
+      <main className="container" style={{ marginTop: 100, flex: 1 }}>
+        <div className="card">
           <Outlet />
         </div>
       </main>
 
       {/* FOOTER */}
-      <footer
-        style={{
-          textAlign: "center",
-          opacity: 0.7,
-          marginTop: 60,
-          padding: "20px 0 40px",
-          fontSize: 14,
-        }}
-      >
+      <footer className="container" style={{ padding: "28px 0 40px", color: "var(--muted)", fontSize: 14 }}>
         © {new Date().getFullYear()} DioNova
       </footer>
     </div>

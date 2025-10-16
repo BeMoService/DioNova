@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import About from "./pages/About.jsx";
 import DJ from "./pages/DJ.jsx";
 import Model from "./pages/Model.jsx";
+import Contact from "./pages/Contact.jsx";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")).render(
           <Route index element={<About />} />
           <Route path="dj" element={<DJ />} />
           <Route path="model" element={<Model />} />
+          <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>
     </HashRouter>
