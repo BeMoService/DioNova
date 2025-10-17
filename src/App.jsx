@@ -2,7 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 export default function App() {
   const links = [
-    { to: "/", label: "About", end: true },
+    { to: "/", label: "Over mij", end: true },
     { to: "/dj", label: "DJ" },
     { to: "/model", label: "Model" },
     { to: "/contact", label: "Contact" },
