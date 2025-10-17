@@ -2,7 +2,6 @@ export default function About() {
   return (
     <section className="grid grid-2">
       <div>
-        <h1 style={{ marginBottom: 12 }}>Over mij</h1>
         <p style={{ lineHeight: 1.7 }}>
           Heyy! Ik ben <strong>Dionicia Scholten</strong> beter bekend als <strong>Dio Nova</strong>.
           Ik ben 20 jaar oud en afkomstig uit Delden. 🎧 <br /><br />

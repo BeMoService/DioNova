@@ -63,5 +63,25 @@ header nav a:hover {
   color: #fff !important;
 }
 
-/* Links algemeen */
-a { color: inherit; text-decoration: none; }
+/* Hero (boven content) */
+.hero { position: relative; z-index: 1; margin-top: 100px; }
+.hero .inner {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding: 12px 0 20px; border-bottom: 1px solid var(--line); margin-bottom: 22px;
+}
+.hero h2 { font-size: 1.4rem; font-weight: 600; letter-spacing: .4px; }
+.hero p  { color: var(--muted); }
+
+/* Subtiele achtergrond-versiering (gouden gloed) */
+.bg-ornament { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.bg-ornament::before {
+  content: ""; position: absolute; width: 520px; height: 520px; right: -160px; top: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,175,55,0.18), rgba(212,175,55,0) 60%);
+  filter: blur(10px);
+}
+.bg-ornament::after {
+  content: ""; position: absolute; width: 600px; height: 600px; left: -180px; bottom: -120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,0,0,0.06), rgba(0,0,0,0) 60%);
+}

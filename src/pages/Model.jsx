@@ -2,7 +2,6 @@ export default function Model() {
   return (
     <section className="grid grid-2">
       <div>
-        <h1 style={{ marginBottom: 12 }}>Model</h1>
         <p style={{ lineHeight: 1.7 }}>
           Shoots met karakter en beweging — van <strong>beauty/fashion</strong> en
           <strong> lifestyle</strong> tot <strong>editorial</strong>. Daarnaast inzetbaar voor
@@ -10,7 +9,6 @@ export default function Model() {
           behind-the-scenes. Samen met merken, artiesten en creators zet ik een verhaal neer met energie en sfeer. <br /><br />
           Focus: krachtige poses, clean styling en een relaxed set-ritme — zodat we beelden maken die blijven hangen.
         </p>
-
         <a href="#/contact" className="btn" style={{ marginTop: 20 }}>
           Boek voor shoot of clip
         </a>

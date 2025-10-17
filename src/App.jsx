@@ -1,4 +1,23 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
+
+function PageHero() {
+  const { pathname } = useLocation();
+  const map = {
+    "/":       { title: "Over mij", subtitle: "Persoonlijke introductie" },
+    "/dj":     { title: "DJ",       subtitle: "Energie, verrassing & sfeer" },
+    "/model":  { title: "Model",    subtitle: "Shoots & videoclips" },
+    "/contact":{ title: "Contact",  subtitle: "Boekingen & samenwerkingen" },
+  };
+  const { title, subtitle } = map[pathname] || map["/"];
+  return (
+    <div className="hero">
+      <div className="container inner">
+        <h2>{title}</h2>
+        <p>{subtitle}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function App() {
   const links = [
@@ -9,7 +28,9 @@ export default function App() {
   ];
 
   return (
-    <div style={{ minHeight: "100dvh", display: "flex", flexDirection: "column" }}>
+    <div style={{ minHeight: "100dvh", display: "flex", flexDirection: "column", position: "relative" }}>
+      <div className="bg-ornament" />
+
       {/* TOPBAR */}
       <header
         style={{
@@ -38,7 +59,6 @@ export default function App() {
                   fontWeight: 500,
                   transition: "all .25s ease",
                   cursor: "pointer"
-                  /* Hover-states via CSS (zie index.css) */
                 })}
               >
                 {label}
@@ -48,8 +68,11 @@ export default function App() {
         </div>
       </header>
 
+      {/* HERO */}
+      <PageHero />
+
       {/* PAGE */}
-      <main className="container" style={{ marginTop: 100, flex: 1 }}>
+      <main className="container" style={{ flex: 1 }}>
         <div className="card">
           <Outlet />
         </div>

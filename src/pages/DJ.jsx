@@ -2,7 +2,6 @@ export default function DJ() {
   return (
     <section className="grid grid-2">
       <div>
-        <h1 style={{ marginBottom: 12 }}>DJ Dio Nova</h1>
         <p style={{ lineHeight: 1.7 }}>
           Ik draai sets vol energie, verrassingen en sfeer.
           Met een mix van <strong>house</strong>, <strong>techno</strong> en <strong>urban</strong> weet ik elke zaal in beweging te krijgen.
@@ -12,7 +11,6 @@ export default function DJ() {
           mijn sets zijn een beleving op zich.
           Ik draai niet zomaar tracks, ik creëer momenten die mensen niet vergeten.
         </p>
-
         <a href="#/contact" className="btn" style={{ marginTop: 20 }}>
           Boek DJ Dio Nova
         </a>
