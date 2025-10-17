@@ -4,12 +4,12 @@ export default function DJ() {
       <div>
         <h1 style={{ marginBottom: 12 }}>DJ Dio Nova</h1>
         <p style={{ lineHeight: 1.7 }}>
-          Ik draai sets vol energie, verrassingen en sfeer. 
-          Met een mix van <strong>house</strong>, <strong>techno</strong> en <strong>urban</strong> weet ik elke zaal in beweging te krijgen. 
-          Of het nu een club, festival, café of privéfeest is — 
-          ik voel de vibe aan en bouw die met volle energie op tot het dak eraf gaat. 🔊 <br/><br/>
-          Onvoorspelbaar, energiek en altijd in contact met het publiek — 
-          mijn sets zijn een beleving op zich. 
+          Ik draai sets vol energie, verrassingen en sfeer.
+          Met een mix van <strong>house</strong>, <strong>techno</strong> en <strong>urban</strong> weet ik elke zaal in beweging te krijgen.
+          Of het nu een club, festival, café of privéfeest is —
+          ik voel de vibe aan en bouw die met volle energie op tot het dak eraf gaat. 🔊 <br /><br />
+          Onvoorspelbaar, energiek en altijd in contact met het publiek —
+          mijn sets zijn een beleving op zich.
           Ik draai niet zomaar tracks, ik creëer momenten die mensen niet vergeten.
         </p>
 
