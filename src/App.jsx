@@ -36,7 +36,9 @@ export default function App() {
                   background: isActive ? "var(--accent)" : "transparent",
                   color: isActive ? "#fff" : "var(--ink)",
                   fontWeight: 500,
-                  transition: ".2s"
+                  transition: "all .25s ease",
+                  cursor: "pointer"
+                  /* Hover-states via CSS (zie index.css) */
                 })}
               >
                 {label}

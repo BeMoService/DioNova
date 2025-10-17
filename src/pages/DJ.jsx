@@ -13,19 +13,7 @@ export default function DJ() {
           Ik draai niet zomaar tracks, ik creëer momenten die mensen niet vergeten.
         </p>
 
-        <a
-          href="#/contact"
-          style={{
-            display: "inline-block",
-            marginTop: 20,
-            padding: "12px 24px",
-            background: "var(--accent)",
-            color: "#fff",
-            borderRadius: 8,
-            fontWeight: 600,
-            letterSpacing: 0.3,
-          }}
-        >
+        <a href="#/contact" className="btn" style={{ marginTop: 20 }}>
           Boek DJ Dio Nova
         </a>
       </div>

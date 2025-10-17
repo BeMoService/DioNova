@@ -11,19 +11,7 @@ export default function Model() {
           Focus: krachtige poses, clean styling en een relaxed set-ritme — zodat we beelden maken die blijven hangen.
         </p>
 
-        <a
-          href="#/contact"
-          style={{
-            display: "inline-block",
-            marginTop: 20,
-            padding: "12px 24px",
-            background: "var(--accent)",
-            color: "#fff",
-            borderRadius: 8,
-            fontWeight: 600,
-            letterSpacing: 0.3,
-          }}
-        >
+        <a href="#/contact" className="btn" style={{ marginTop: 20 }}>
           Boek voor shoot of clip
         </a>
       </div>
