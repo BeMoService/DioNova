@@ -4,7 +4,6 @@ const IconMail = (props) => (
     <path d="M22 8l-9.2 6.1a2 2 0 0 1-2.2 0L1.9 8" stroke="currentColor" strokeWidth="1.6" />
   </svg>
 );
-
 const IconIg = (props) => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" {...props}>
     <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.6"/>
@@ -29,7 +28,6 @@ export default function Contact() {
           >
             <IconMail /> Dioniciascholten3@gmail.com
           </a>
-
           <a
             href="https://instagram.com/dionicia19_"
             target="_blank"
@@ -40,7 +38,7 @@ export default function Contact() {
           </a>
         </div>
 
-        <p className="subtle" style={{ marginTop: 18, fontSize: 14 }}>
+        <p className="subtle" style={{ marginTop: 18, fontSize: 14, color: "rgba(255,255,255,.75)" }}>
           Vermeld bij boekingen: datum, locatie, type event of shoot, verwachte duur en voorkeuren.
         </p>
       </div>
