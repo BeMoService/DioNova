@@ -2,13 +2,13 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body, #root { height: 100%; }
 
-/* Thema */
+/* Thema — warmer beige */
 :root{
-  --bg: #f4efe7;      /* beige */
+  --bg: #efe3d0;      /* warmer, duidelijk beige */
   --ink: #222;        /* tekst */
-  --muted: #6b6b6b;   /* subtiele tekst */
-  --card: #fff;       /* cardkleur */
-  --line: #e7e0d6;    /* borders */
+  --muted: #6f655b;   /* subtiele tekst */
+  --card: #ffffff;    /* cardkleur */
+  --line: #e2d6c3;    /* borders */
   --accent: #111;     /* actieve knop/nav */
   --gold: #d4af37;    /* hover-accent */
 }
@@ -45,7 +45,7 @@ header nav a:hover {
   transition: color .2s ease, border-color .2s ease;
 }
 
-/* Buttons (ook voor “Boek nu”) */
+/* Buttons */
 .btn {
   display: inline-block;
   padding: 12px 24px;
@@ -63,7 +63,7 @@ header nav a:hover {
   color: #fff !important;
 }
 
-/* Hero (boven content) */
+/* Hero */
 .hero { position: relative; z-index: 1; margin-top: 100px; }
 .hero .inner {
   display: flex; align-items: flex-end; justify-content: space-between;
@@ -72,16 +72,16 @@ header nav a:hover {
 .hero h2 { font-size: 1.4rem; font-weight: 600; letter-spacing: .4px; }
 .hero p  { color: var(--muted); }
 
-/* Subtiele achtergrond-versiering (gouden gloed) */
+/* Subtiele achtergrond-versiering (gouden gloed) — iets sterker */
 .bg-ornament { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
 .bg-ornament::before {
-  content: ""; position: absolute; width: 520px; height: 520px; right: -160px; top: 60px;
+  content: ""; position: absolute; width: 520px; height: 520px; right: -140px; top: 60px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(212,175,55,0.18), rgba(212,175,55,0) 60%);
-  filter: blur(10px);
+  background: radial-gradient(circle, rgba(212,175,55,0.22), rgba(212,175,55,0) 60%);
+  filter: blur(12px);
 }
 .bg-ornament::after {
-  content: ""; position: absolute; width: 600px; height: 600px; left: -180px; bottom: -120px;
+  content: ""; position: absolute; width: 640px; height: 640px; left: -160px; bottom: -140px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(0,0,0,0.06), rgba(0,0,0,0) 60%);
 }

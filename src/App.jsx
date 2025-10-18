@@ -2,18 +2,19 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 function PageHero() {
   const { pathname } = useLocation();
+  // Subtitel alleen tonen waar ingevuld (Over mij & DJ leeg)
   const map = {
-    "/":       { title: "Over mij", subtitle: "Persoonlijke introductie" },
-    "/dj":     { title: "DJ",       subtitle: "Energie, verrassing & sfeer" },
-    "/model":  { title: "Model",    subtitle: "Shoots & videoclips" },
-    "/contact":{ title: "Contact",  subtitle: "Boekingen & samenwerkingen" },
+    "/":        { title: "Over mij", subtitle: "" },
+    "/dj":      { title: "DJ",       subtitle: "" },
+    "/model":   { title: "Model",    subtitle: "Shoots & videoclips" },
+    "/contact": { title: "Contact",  subtitle: "Boekingen & samenwerkingen" },
   };
   const { title, subtitle } = map[pathname] || map["/"];
   return (
     <div className="hero">
       <div className="container inner">
         <h2>{title}</h2>
-        <p>{subtitle}</p>
+        {subtitle ? <p>{subtitle}</p> : <span />} {/* niets renderen als leeg */}
       </div>
     </div>
   );
@@ -38,7 +39,7 @@ export default function App() {
           top: 0, left: 0, width: "100%", height: 68,
           background: "rgba(255,255,255,0.9)",
           backdropFilter: "blur(6px)",
-          borderBottom: "1px solid #e7e0d6",
+          borderBottom: "1px solid var(--line)",
           zIndex: 50
         }}
       >
