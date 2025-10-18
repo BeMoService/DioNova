@@ -4,13 +4,13 @@ html, body, #root { height: 100%; }
 
 /* Thema — warmer beige */
 :root{
-  --bg: #efe3d0;      /* warmer, duidelijk beige */
-  --ink: #222;        /* tekst */
-  --muted: #6f655b;   /* subtiele tekst */
-  --card: #ffffff;    /* cardkleur */
-  --line: #e2d6c3;    /* borders */
-  --accent: #111;     /* actieve knop/nav */
-  --gold: #d4af37;    /* hover-accent */
+  --bg: #efe3d0;
+  --ink: #222;
+  --muted: #6f655b;
+  --card: #ffffff;
+  --line: #e2d6c3;
+  --accent: #111;
+  --gold: #d4af37;
 }
 
 body {
@@ -72,7 +72,7 @@ header nav a:hover {
 .hero h2 { font-size: 1.4rem; font-weight: 600; letter-spacing: .4px; }
 .hero p  { color: var(--muted); }
 
-/* Subtiele achtergrond-versiering (gouden gloed) — iets sterker */
+/* Subtiele achtergrond-versiering (gouden gloed) */
 .bg-ornament { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
 .bg-ornament::before {
   content: ""; position: absolute; width: 520px; height: 520px; right: -140px; top: 60px;
@@ -84,4 +84,29 @@ header nav a:hover {
   content: ""; position: absolute; width: 640px; height: 640px; left: -160px; bottom: -140px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(0,0,0,0.06), rgba(0,0,0,0) 60%);
+}
+
+/* ========================= */
+/*   MOBIEL: < 900px breed   */
+/* ========================= */
+@media (max-width: 899px) {
+  .container { padding: 0 16px; }
+
+  /* Nav: iets compacter + kan horizontaal scrollen als het net niet past */
+  .topnav { gap: 6px; overflow-x: auto; padding-bottom: 4px; }
+  .topnav::-webkit-scrollbar { display: none; }
+  header nav a { padding: 8px 12px; font-size: 0.95rem; white-space: nowrap; }
+
+  /* Sections: 1 kolom, maar beeld eerst */
+  .grid-2 { grid-template-columns: 1fr; }
+  .col-image { order: -1; }   /* beeld boven tekst op mobiel */
+  .col-text  { order: 0; }
+
+  /* Hero: titel + subtitel onder elkaar, links uitgelijnd */
+  .hero .inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .hero p { margin-top: 2px; }
 }

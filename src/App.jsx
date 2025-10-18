@@ -2,7 +2,7 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 function PageHero() {
   const { pathname } = useLocation();
-  // Subtitel alleen tonen waar ingevuld (Over mij & DJ leeg)
+  // Subtitel alleen tonen bij Model en Contact
   const map = {
     "/":        { title: "Over mij", subtitle: "" },
     "/dj":      { title: "DJ",       subtitle: "" },
@@ -14,7 +14,7 @@ function PageHero() {
     <div className="hero">
       <div className="container inner">
         <h2>{title}</h2>
-        {subtitle ? <p>{subtitle}</p> : <span />} {/* niets renderen als leeg */}
+        {subtitle ? <p>{subtitle}</p> : <span />}
       </div>
     </div>
   );
@@ -45,7 +45,7 @@ export default function App() {
       >
         <div className="container" style={{height:"100%", display:"flex", alignItems:"center", justifyContent:"space-between", gap:16}}>
           <strong style={{letterSpacing:.4}}>DioNova</strong>
-          <nav style={{ display: "flex", gap: 10 }}>
+          <nav className="topnav" style={{ display: "flex", gap: 10 }}>
             {links.map(({ to, label, end }) => (
               <NavLink
                 key={to}
