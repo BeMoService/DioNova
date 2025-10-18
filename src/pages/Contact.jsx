@@ -19,8 +19,7 @@ export default function Contact() {
       <div>
         <h1>Boekingen & Contact</h1>
         <p style={{ lineHeight: 1.6 }}>
-          Wil je <strong>Dio Nova</strong> boeken of samenwerken voor een shoot of event? 
-          Neem direct contact op. Ik reageer altijd zo snel mogelijk.
+          Wil je Dio Nova boeken of samenwerken voor een shoot of event? Neem direct contact op. Ik reageer zo snel mogelijk.
         </p>
 
         <div style={{ display: "grid", gap: 10, marginTop: 14 }}>
@@ -42,7 +41,7 @@ export default function Contact() {
         </div>
 
         <p className="subtle" style={{ marginTop: 18, fontSize: 14 }}>
-          Vermeld bij boekingen: datum, locatie, type event/shoot, verwachte duur en eventuele voorkeuren.
+          Vermeld bij boekingen: datum, locatie, type event of shoot, verwachte duur en voorkeuren.
         </p>
       </div>
     </section>
