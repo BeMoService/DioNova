@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 function PageHero() {
@@ -47,7 +47,7 @@ export default function App() {
         }}
       >
         <div className="container" style={{height:"100%", display:"flex", alignItems:"center", justifyContent:"space-between", gap:16}}>
-          {/* LOGO LINKS */}
+          {/* LOGO uit /public/images/logo.png */}
           <a href="#/" style={{ display:"flex", alignItems:"center", gap:8 }} aria-label="Home">
             <img src="/images/logo.png" alt="DioNova logo" style={{ height: 34, width: "auto" }} />
           </a>
@@ -66,7 +66,7 @@ export default function App() {
       {/* HERO */}
       <PageHero />
 
-      {/* PAGE (geen card wrapper meer) */}
+      {/* PAGE */}
       <main className="container" style={{ flex: 1 }}>
         <Outlet />
       </main>

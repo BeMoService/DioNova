@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 
+// Slides uit /public/images/model/1..6.jpg
 const images = [
   "/images/model/1.jpg",
   "/images/model/2.jpg",
   "/images/model/3.jpg",
   "/images/model/4.jpg",
   "/images/model/5.jpg",
-  "/images/model/6.jpg", // optioneel
+  "/images/model/6.jpg", // haal weg als je er 5 hebt
 ];
 
 export default function Model() {
@@ -15,16 +16,22 @@ export default function Model() {
   useEffect(() => {
     const id = setInterval(() => {
       setIdx((i) => (i + 1) % images.length);
-    }, 2500); // elke 2.5s
+    }, 2500);
     return () => clearInterval(id);
   }, []);
 
   return (
     <section className="grid grid-2">
-      {/* SLIDESHOW LINKS (op mobiel boven) */}
       <div className="col-image" style={{ position: "relative" }}>
-        <img key={idx} src={images[idx]} alt="DioNova model" className="resp" />
-        {/* Dots */}
+        <img
+          key={idx}
+          src={images[idx]}
+          alt="DioNova model"
+          className="resp"
+          style={{ aspectRatio: "4/5", objectFit: "cover" }}
+          onError={(e) => (e.currentTarget.style.display = "none")}
+          onLoad={(e) => (e.currentTarget.style.display = "block")}
+        />
         <div style={{ position: "absolute", bottom: 10, left: 12, display:"flex", gap:6 }}>
           {images.map((_, i) => (
             <span
