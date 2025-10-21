@@ -22,7 +22,6 @@ function PageHero() {
 
 export default function App() {
   const [open, setOpen] = useState(false);
-
   const close = () => setOpen(false);
 
   const links = [
@@ -36,7 +35,7 @@ export default function App() {
     <div style={{ minHeight: "100dvh", display: "flex", flexDirection: "column", position: "relative" }}>
       <div className="bg-ornament" />
 
-      {/* TOPBAR (brand + hamburger) */}
+      {/* TOPBAR */}
       <header
         style={{
           position: "fixed",
@@ -48,8 +47,9 @@ export default function App() {
         }}
       >
         <div className="container" style={{height:"100%", display:"flex", alignItems:"center", justifyContent:"space-between", gap:16}}>
-          <a href="#/" style={{ display:"flex", alignItems:"center", gap:8, color:"var(--ink)", fontWeight:700, letterSpacing:.4 }}>
-            DioNova
+          {/* LOGO LINKS */}
+          <a href="#/" style={{ display:"flex", alignItems:"center", gap:8 }} aria-label="Home">
+            <img src="/images/logo.png" alt="DioNova logo" style={{ height: 34, width: "auto" }} />
           </a>
 
           {/* Hamburger */}
@@ -66,11 +66,9 @@ export default function App() {
       {/* HERO */}
       <PageHero />
 
-      {/* PAGE */}
+      {/* PAGE (geen card wrapper meer) */}
       <main className="container" style={{ flex: 1 }}>
-        <div className="card">
-          <Outlet />
-        </div>
+        <Outlet />
       </main>
 
       {/* FOOTER */}

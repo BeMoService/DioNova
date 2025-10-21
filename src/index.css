@@ -7,10 +7,9 @@ html, body, #root { height: 100%; }
   --bg: #efe3d0;     /* beige */
   --ink: #222;       /* tekst */
   --muted: #6f655b;  /* subtiele tekst */
-  --card: #0f0f0f;   /* ZWARTE content card */
-  --line: #e2d6c3;   /* borders (buiten card) */
-  --accent: #111;    /* accent donker */
-  --gold: #d4af37;   /* hover-accent / knop */
+  --line: #e2d6c3;   /* borders (hero/onderstreep) */
+  --accent: #111;    /* donker */
+  --gold: #d4af37;   /* knoppen / hover */
 }
 
 body {
@@ -21,16 +20,6 @@ body {
 
 /* Utilities */
 .container { max-width: 1024px; margin: 0 auto; padding: 0 24px; }
-.card {
-  background: var(--card);
-  color: #fff;                       /* witte tekst in card */
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 18px;
-  padding: 36px;
-  box-shadow: 0 10px 40px rgba(0,0,0,.25);
-}
-.card a { color: #fff; }             /* links in card ook wit */
-.subtle { color: var(--muted); }
 img.resp { display:block; width:100%; height:auto; border-radius:12px; }
 .grid { display: grid; gap: 24px; }
 @media (min-width: 900px){ .grid-2 { grid-template-columns: 1.1fr .9fr; } }
@@ -38,9 +27,10 @@ img.resp { display:block; width:100%; height:auto; border-radius:12px; }
 /* Typografie & spacing */
 section { scroll-margin-top: 90px; }
 h1 { font-size: 1.9rem; margin-bottom: 12px; font-weight: 700; letter-spacing: .2px; }
-p  { font-size: 1.05rem; line-height: 1.8; }
+p  { font-size: 1.05rem; line-height: 1.8; color: var(--ink); }
+a { color: inherit; text-decoration: none; }
 
-/* Buttons – goud op zwarte card */
+/* Knoppen (goud) */
 .btn {
   display: inline-block;
   padding: 12px 24px;

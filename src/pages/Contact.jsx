@@ -38,7 +38,7 @@ export default function Contact() {
           </a>
         </div>
 
-        <p className="subtle" style={{ marginTop: 18, fontSize: 14, color: "rgba(255,255,255,.75)" }}>
+        <p className="subtle" style={{ marginTop: 18, fontSize: 14 }}>
           Vermeld bij boekingen: datum, locatie, type event of shoot, verwachte duur en voorkeuren.
         </p>
       </div>

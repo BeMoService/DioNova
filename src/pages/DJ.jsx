@@ -1,6 +1,9 @@
 export default function DJ() {
   return (
     <section className="grid grid-2">
+      <div className="col-image">
+        <img src="/images/dionova.jpg" alt="DJ Dio Nova" className="resp" />
+      </div>
       <div className="col-text">
         <p style={{ lineHeight: 1.7 }}>
           Ik draai sets vol energie, verrassingen en sfeer.
@@ -13,9 +16,6 @@ export default function DJ() {
         <a href="#/contact" className="btn" style={{ marginTop: 20 }}>
           Boek DJ Dio Nova
         </a>
-      </div>
-      <div className="col-image">
-        <img src="/images/dionova.jpg" alt="DJ Dio Nova" className="resp" />
       </div>
     </section>
   );
