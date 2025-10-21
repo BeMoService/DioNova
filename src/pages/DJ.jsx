@@ -1,8 +1,10 @@
+import djImg from "../assets/dionova.jpg";
+
 export default function DJ() {
   return (
     <section className="grid grid-2">
       <div className="col-image">
-        <img src="/images/dionova.jpg" alt="DJ Dio Nova" className="resp" />
+        <img src={djImg} alt="DJ Dio Nova" className="resp" />
       </div>
       <div className="col-text">
         <p style={{ lineHeight: 1.7 }}>

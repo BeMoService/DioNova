@@ -1,8 +1,10 @@
+import aboutImg from "../assets/dionova.jpg";
+
 export default function About() {
   return (
     <section className="grid grid-2">
       <div className="col-image">
-        <img src="/images/dionova.jpg" alt="DioNova" className="resp" />
+        <img src={aboutImg} alt="DioNova" className="resp" />
       </div>
       <div className="col-text">
         <p style={{ lineHeight: 1.7 }}>
