@@ -1,10 +1,16 @@
-import djImg from "../assets/dionova.jpg";
+import djImg from "../assets/DJ.jpg";        // <— nieuwe DJ-foto
+// About/Model blijven hun eigen imports gebruiken
 
 export default function DJ() {
   return (
     <section className="grid grid-2">
       <div className="col-image">
-        <img src={djImg} alt="DJ Dio Nova" className="resp" />
+        <img
+          src={djImg}
+          alt="DJ Dio Nova"
+          className="resp"
+          style={{ objectFit: "cover" }}
+        />
       </div>
       <div className="col-text">
         <p style={{ lineHeight: 1.7 }}>
