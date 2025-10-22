@@ -1,4 +1,4 @@
-import djImg from "../assets/DJ.jpg";        // <— nieuwe DJ-foto
+import djImg from "../assets/dj.jpg";        // <— nieuwe DJ-foto
 // About/Model blijven hun eigen imports gebruiken
 
 export default function DJ() {
