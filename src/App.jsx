@@ -1,4 +1,3 @@
-// src/App.jsx
 import { Outlet, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logo from "./assets/logo.png";
@@ -26,12 +25,12 @@ export default function App() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
 
-  // ✅ Over mij staat hier expliciet in
+  // ✅ Dit bepaalt wat er in de zijbalk staat
   const links = [
-    { to: "#/",       label: "Over mij" },
-    { to: "#/dj",     label: "DJ" },
-    { to: "#/model",  label: "Model" },
-    { to: "#/contact",label: "Contact" },
+    { to: "#/",        label: "Over mij" },
+    { to: "#/dj",      label: "DJ" },
+    { to: "#/model",   label: "Model" },
+    { to: "#/contact", label: "Contact" },
   ];
 
   return (
@@ -69,7 +68,7 @@ export default function App() {
       {/* HERO */}
       <PageHero />
 
-      {/* CONTENT */}
+      {/* PAGINA-INHOUD */}
       <main className="container" style={{ flex: 1 }}>
         <Outlet />
       </main>
@@ -79,7 +78,7 @@ export default function App() {
         © {new Date().getFullYear()} DioNova
       </footer>
 
-      {/* DRAWER */}
+      {/* OVERLAY + DRAWER */}
       <div className={`scrim ${open ? "" : "hidden"}`} onClick={close}></div>
       <aside className={`drawer ${open ? "open" : ""}`} aria-hidden={!open}>
         <nav style={{ display:"flex", flexDirection:"column", gap:10 }}>
