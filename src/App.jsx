@@ -1,5 +1,4 @@
-// src/App.jsx
-import { Outlet, useLocation } from "react-router-dom";
+﻿import { Outlet, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logo from "./assets/logo.png";
 
@@ -26,7 +25,7 @@ export default function App() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
 
-  // <- DIT bepaalt de zijbalk-items (NL labels, incl. Over mij)
+  // ZIJBALK ITEMS (NL)  Over mij MOET hier staan
   const links = [
     { to: "#/",        label: "Over mij" },
     { to: "#/dj",      label: "DJ" },
@@ -38,7 +37,6 @@ export default function App() {
     <div style={{ minHeight: "100dvh", display: "flex", flexDirection: "column", position: "relative" }}>
       <div className="bg-ornament" />
 
-      {/* TOPBAR */}
       <header
         style={{
           position: "fixed",
@@ -50,12 +48,10 @@ export default function App() {
         }}
       >
         <div className="container" style={{height:"100%", display:"flex", alignItems:"center", justifyContent:"space-between", gap:16}}>
-          {/* Logo (niet klikbaar) */}
           <div style={{ display:"flex", alignItems:"center", gap:8 }}>
             <img src={logo} alt="DioNova logo" style={{ height: 40, width: "auto" }} />
           </div>
 
-          {/* Hamburger */}
           <button
             className={`hamburger ${open ? "open" : ""}`}
             aria-label="Menu"
@@ -66,20 +62,16 @@ export default function App() {
         </div>
       </header>
 
-      {/* HERO */}
       <PageHero />
 
-      {/* PAGINA-INHOUD */}
       <main className="container" style={{ flex: 1 }}>
         <Outlet />
       </main>
 
-      {/* FOOTER */}
       <footer className="container" style={{ padding: "28px 0 40px", color: "var(--muted)", fontSize: 14 }}>
         © {new Date().getFullYear()} DioNova
       </footer>
 
-      {/* OVERLAY + DRAWER */}
       <div className={`scrim ${open ? "" : "hidden"}`} onClick={close}></div>
       <aside className={`drawer ${open ? "open" : ""}`} aria-hidden={!open}>
         <nav style={{ display:"flex", flexDirection:"column", gap:10 }}>
