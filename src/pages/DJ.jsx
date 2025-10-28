@@ -11,7 +11,7 @@ const media = [
 
 export default function DJ() {
   const [idx, setIdx] = useState(0);
-  const [muted, setMuted] = useState(true);      // ← start muted (verplicht voor autoplay)
+  const [muted, setMuted] = useState(true); // start muted voor autoplay
   const vidRef = useRef(null);
 
   const startX = useRef(0);
@@ -20,7 +20,7 @@ export default function DJ() {
   const next = useCallback(() => setIdx((i) => (i + 1) % media.length), []);
   const prev = useCallback(() => setIdx((i) => (i - 1 + media.length) % media.length), []);
 
-  // Auto-advance alleen op FOTO (video wacht op einde of user)
+  // Auto-advance alleen op FOTO
   useEffect(() => {
     const item = media[idx];
     if (item.type === "image") {
@@ -29,7 +29,7 @@ export default function DJ() {
     }
   }, [idx, next]);
 
-  // Bij videoslide: reset, zet muted aan, en speel (autoplay muted)
+  // Bij videoslide: reset + autoplay (muted)
   useEffect(() => {
     const item = media[idx];
     if (item.type === "video" && vidRef.current) {
@@ -44,28 +44,23 @@ export default function DJ() {
 
   const onEnded = useCallback(() => next(), [next]);
 
-  // Tap-to-unmute knop
+  // Tap-to-unmute
   const toggleMute = useCallback((e) => {
-    e.stopPropagation(); // niet laten bubbelen naar klikzones
+    e.stopPropagation();
     if (!vidRef.current) return;
     const newMuted = !muted;
     setMuted(newMuted);
     vidRef.current.muted = newMuted;
-    // user gesture → mag met audio spelen
     vidRef.current.play().catch(() => {});
   }, [muted]);
 
-  // Swipe-events
+  // Swipe
   const onTouchStart = (e) => { startX.current = e.touches[0].clientX; };
   const onTouchMove  = (e) => { endX.current   = e.touches[0].clientX; };
   const onTouchEnd   = () => {
     const delta = startX.current - endX.current;
-    if (Math.abs(delta) > 50) {
-      if (delta > 0) next();
-      else prev();
-    }
-    startX.current = 0;
-    endX.current = 0;
+    if (Math.abs(delta) > 50) (delta > 0 ? next() : prev());
+    startX.current = 0; endX.current = 0;
   };
 
   const item = media[idx];
@@ -80,6 +75,9 @@ export default function DJ() {
     ...zoneBase, right: 0,
     background: "linear-gradient(to left, rgba(0,0,0,0.02), rgba(0,0,0,0))",
   }), [zoneBase]);
+
+  // Gemeenschappelijke style: staand 9:16
+  const portraitStyle = { aspectRatio: "9/16", objectFit: "cover" };
 
   return (
     <section className="grid grid-2">
@@ -96,7 +94,7 @@ export default function DJ() {
             src={item.src}
             alt={item.alt}
             className="resp"
-            style={{ aspectRatio: "16/9", objectFit: "cover" }}
+            style={portraitStyle}
             onClick={next}
           />
         ) : (
@@ -107,13 +105,13 @@ export default function DJ() {
               src={item.src}
               poster={item.poster}
               className="resp"
-              style={{ aspectRatio: "16/9", objectFit: "cover" }}
+              style={portraitStyle}
               controls
               playsInline
               muted={muted}
               onEnded={onEnded}
             />
-            {/* Unmute-knop (rechtsonder) */}
+            {/* Unmute-knop */}
             <button
               onClick={toggleMute}
               style={{
