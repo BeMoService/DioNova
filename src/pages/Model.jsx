@@ -1,12 +1,12 @@
 import { useEffect, useState, useCallback, useMemo } from "react";
 
-import m1 from "../assets/model/1.jpg";
-import m2 from "../assets/model/2.jpg";
-import m3 from "../assets/model/3.jpg";
-import m4 from "../assets/model/4.jpg";
-import m5 from "../assets/model/5.jpg";
-import m6 from "../assets/model/6.jpg";
-import m7 from "../assets/model/7.jpg";
+import m1 from "../assets/model/1.jpg?v=2";
+import m2 from "../assets/model/2.jpg?v=2";
+import m3 from "../assets/model/3.jpg?v=2";
+import m4 from "../assets/model/4.jpg?v=2";
+import m5 from "../assets/model/5.jpg?v=2";
+import m6 from "../assets/model/6.jpg?v=2";
+import m7 from "../assets/model/7.jpg?v=2";
 
 const images = [m1, m2, m3, m4, m5, m6, m7]; // vaste volgorde: 1 -> 7
 
