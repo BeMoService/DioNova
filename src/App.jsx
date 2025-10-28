@@ -1,3 +1,4 @@
+// src/App.jsx
 import { Outlet, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logo from "./assets/logo.png";
@@ -25,7 +26,7 @@ export default function App() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
 
-  // ✅ Dit bepaalt wat er in de zijbalk staat
+  // <- DIT bepaalt de zijbalk-items (NL labels, incl. Over mij)
   const links = [
     { to: "#/",        label: "Over mij" },
     { to: "#/dj",      label: "DJ" },
