@@ -1,3 +1,5 @@
+// Zorg dat jouw nieuwe foto exact hier staat:
+// C:\DioNova-site\src\assets\dionova.jpg
 import aboutImg from "../assets/dionova.jpg";
 
 export default function About() {
