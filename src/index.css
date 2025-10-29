@@ -109,3 +109,27 @@ a { color: inherit; text-decoration: none; }
   .col-image { order: -1; } /* beeld boven tekst */
   .hero .inner { flex-direction: column; align-items: flex-start; gap: 4px; }
 }
+
+/* Media frame: houdt vaste verhouding en laat content vullen */
+.media-frame {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000; /* voorkomt ‘flash’ van beige bij video */
+}
+
+/* 4:5 staand (zelfde als foto’s elders) */
+.media-frame.ratio-4x5 {
+  aspect-ratio: 4 / 5;
+}
+
+/* Laat beeld/videocanvas exact het frame vullen */
+.media-frame > img,
+.media-frame > video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
