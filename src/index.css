@@ -110,26 +110,31 @@ a { color: inherit; text-decoration: none; }
   .hero .inner { flex-direction: column; align-items: flex-start; gap: 4px; }
 }
 
-/* Media frame: houdt vaste verhouding en laat content vullen */
-.media-frame {
+/* --- Media frame: vaste verhouding + geen overflow --- */
+.media-frame{
   position: relative;
   width: 100%;
+  max-width: 640px;          /* desktop cap */
   border-radius: 12px;
   overflow: hidden;
-  background: #000; /* voorkomt ‘flash’ van beige bij video */
+  background: #000;          /* voorkomt beige rand bij video */
+  margin: 0 auto;            /* centreer in kolom */
 }
+.media-frame.ratio-4x5{ aspect-ratio: 4 / 5; }
 
-/* 4:5 staand (zelfde als foto’s elders) */
-.media-frame.ratio-4x5 {
-  aspect-ratio: 4 / 5;
-}
-
-/* Laat beeld/videocanvas exact het frame vullen */
+/* Child vult frame exact */
 .media-frame > img,
-.media-frame > video {
+.media-frame > video{
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;         /* geen letterboxing vanuit layout */
+  object-position: center;   /* crop centreren */
+  display: block;
+}
+
+/* Mobiel: iets smaller cap zodat hij nooit te groot voelt */
+@media (max-width: 899px){
+  .media-frame{ max-width: 520px; }
 }
