@@ -1,6 +1,5 @@
 ﻿import { Outlet, useLocation } from "react-router-dom";
 import { useState } from "react";
-import logo from "./assets/logo.png";
 
 function PageHero() {
   const { pathname } = useLocation();
@@ -49,7 +48,6 @@ export default function App() {
       >
         <div className="container" style={{height:"100%", display:"flex", alignItems:"center", justifyContent:"space-between", gap:16}}>
           <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-            <img src={logo} alt="DioNova logo" style={{ height: 40, width: "auto" }} />
           </div>
 
           <button

@@ -1,6 +1,5 @@
 // src/pages/DJ.jsx
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-
 import djImg from "../assets/dj.jpg";   // slide 1 (foto)
 import djVid from "../assets/dj.mp4";   // slide 2 (video)
 
@@ -10,37 +9,29 @@ const media = [
 ];
 
 export default function DJ() {
-  const [idx, setIdx] = useState(0);
-  const [muted, setMuted] = useState(true); // start muted voor autoplay-policy
+  const [idx, setIdx]   = useState(0);
+  const [muted, setMuted] = useState(true); // start muted voor autoplay
   const vidRef = useRef(null);
 
-  // swipe tracking
-  const startX = useRef(0);
-  const endX   = useRef(0);
+  const next = useCallback(() => setIdx(i => (i + 1) % media.length), []);
+  const prev = useCallback(() => setIdx(i => (i - 1 + media.length) % media.length), []);
 
-  const next = useCallback(() => setIdx((i) => (i + 1) % media.length), []);
-  const prev = useCallback(() => setIdx((i) => (i - 1 + media.length) % media.length), []);
-
-  // Auto-advance: alleen op de FOTO
+  // Auto-advance alleen op foto
   useEffect(() => {
-    const item = media[idx];
-    if (item.type === "image") {
-      const id = setInterval(next, 3500);
-      return () => clearInterval(id);
-    }
+    if (media[idx].type !== "image") return;
+    const id = setInterval(next, 3500);
+    return () => clearInterval(id);
   }, [idx, next]);
 
-  // Bij videoslide: reset + autoplay (muted) + inline (mobiel)
+  // Als we video tonen: reset & autoplay (muted), playsInline voor mobiel
   useEffect(() => {
-    const item = media[idx];
-    if (item.type === "video" && vidRef.current) {
-      try {
-        setMuted(true);
-        vidRef.current.currentTime = 0;
-        vidRef.current.muted = true;
-        vidRef.current.play().catch(() => {});
-      } catch {}
-    }
+    if (media[idx].type !== "video" || !vidRef.current) return;
+    try {
+      setMuted(true);
+      vidRef.current.currentTime = 0;
+      vidRef.current.muted = true;
+      vidRef.current.play().catch(() => {});
+    } catch {}
   }, [idx]);
 
   const onEnded = useCallback(() => next(), [next]);
@@ -49,22 +40,22 @@ export default function DJ() {
   const toggleMute = useCallback((e) => {
     e.stopPropagation();
     if (!vidRef.current) return;
-    const newMuted = !muted;
-    setMuted(newMuted);
-    vidRef.current.muted = newMuted;
+    const m = !muted;
+    setMuted(m);
+    vidRef.current.muted = m;
     vidRef.current.play().catch(() => {});
   }, [muted]);
 
-  // Swipe events
-  const onTouchStart = (e) => { startX.current = e.touches[0].clientX; };
-  const onTouchMove  = (e) => { endX.current   = e.touches[0].clientX; };
+  // Swipe
+  const sx = useRef(0), ex = useRef(0);
+  const onTouchStart = (e) => (sx.current = e.touches[0].clientX);
+  const onTouchMove  = (e) => (ex.current = e.touches[0].clientX);
   const onTouchEnd   = () => {
-    const delta = startX.current - endX.current;
-    if (Math.abs(delta) > 50) (delta > 0 ? next() : prev());
-    startX.current = 0; endX.current = 0;
+    const d = sx.current - ex.current;
+    if (Math.abs(d) > 50) (d > 0 ? next() : prev());
+    sx.current = ex.current = 0;
   };
 
-  // Klikzones (links / rechts)
   const zoneBase = useMemo(() => ({
     position: "absolute", top: 0, bottom: 0, width: "48%", cursor: "pointer",
     background: "linear-gradient(to right, rgba(0,0,0,0.02), rgba(0,0,0,0))",
@@ -79,7 +70,7 @@ export default function DJ() {
 
   return (
     <section className="grid grid-2">
-      {/* MEDIA in vast 4:5 frame */}
+      {/* MEDIA met vast 4:5 frame (desktop én mobiel) */}
       <div
         className="col-image"
         style={{ position: "relative", userSelect: "none" }}
@@ -89,11 +80,7 @@ export default function DJ() {
       >
         <div className="media-frame ratio-4x5" onClick={item.type === "image" ? next : undefined}>
           {item.type === "image" ? (
-            <img
-              key={`img-${idx}`}
-              src={item.src}
-              alt={item.alt}
-            />
+            <img key={`img-${idx}`} src={item.src} alt={item.alt} />
           ) : (
             <div style={{ position: "relative", width: "100%", height: "100%" }}>
               <video
@@ -106,26 +93,16 @@ export default function DJ() {
                 preload="metadata"
                 muted={muted}
                 onEnded={onEnded}
-                /* Let op: géén inline width/height hier; het frame bepaalt de maat */
               />
-              {/* Unmute/mute overlay-knop */}
+              {/* Unmute/mute overlay */}
               <button
                 onClick={toggleMute}
                 style={{
-                  position: "absolute",
-                  right: 12,
-                  bottom: 12,
-                  zIndex: 5,
-                  background: "rgba(0,0,0,.55)",
-                  color: "#fff",
-                  border: "1px solid rgba(255,255,255,.25)",
-                  borderRadius: 10,
-                  padding: "8px 10px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 8,
-                  backdropFilter: "blur(4px)",
-                  cursor: "pointer",
+                  position: "absolute", right: 12, bottom: 12, zIndex: 5,
+                  background: "rgba(0,0,0,.55)", color: "#fff",
+                  border: "1px solid rgba(255,255,255,.25)", borderRadius: 10,
+                  padding: "8px 10px", display: "flex", alignItems: "center", gap: 8,
+                  backdropFilter: "blur(4px)", cursor: "pointer",
                 }}
                 aria-label={muted ? "Geluid aan" : "Geluid uit"}
                 title={muted ? "Geluid aan" : "Geluid uit"}
@@ -138,7 +115,7 @@ export default function DJ() {
         </div>
 
         {/* Klikzones */}
-        <div role="button" aria-label="Vorige slide" style={leftZone} onClick={prev} />
+        <div role="button" aria-label="Vorige slide" style={leftZone}  onClick={prev} />
         <div role="button" aria-label="Volgende slide" style={rightZone} onClick={next} />
       </div>
 
