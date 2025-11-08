@@ -16,7 +16,7 @@ export default function App(){
         <section className="hero">
           <div className="inner">
             <h2>Dio Nova</h2>
-            <p>DJ • Model</p>
+            {/* subtitel bewust verwijderd */}
           </div>
         </section>
 
@@ -48,7 +48,7 @@ function Header(){
   return (
     <header className="site-header">
       <div className="container header-inner">
-        {/* Desktop navigatie */}
+        {/* Desktop nav UIT via CSS (.nav-desktop display:none) */}
         <nav className="nav-desktop">
           <Link to="/">Over mij</Link>
           <Link to="/dj">DJ</Link>

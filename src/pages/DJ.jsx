@@ -1,11 +1,11 @@
 // src/pages/DJ.jsx
 import djImg from "../assets/dj.jpg";
-import djVid from "../assets/dj.mp4";
+import djVid from "../assets/dj.mp4"; // jouw nieuwe bestand
 
 export default function DJ(){
   return (
     <>
-      {/* Bovenste blok: exact zoals andere pagina's */}
+      {/* Bovenste blok: zelfde layout als andere pagina's */}
       <section className="grid grid-2">
         <div className="col-image">
           <div className="ratio-4x5">
@@ -24,20 +24,19 @@ export default function DJ(){
             Ze draait niet zomaar tracks, ze creëert momenten die mensen niet vergeten.
           </p>
           <a href="#/contact" className="btn" style={{ marginTop:20 }}>Boek DJ Dio Nova</a>
-        </div>
-      </section>
 
-      {/* Video-blok: iets kleiner en onder het eerste blok */}
-      <section className="container" style={{ marginTop:28 }}>
-        <div className="ratio-16x9" style={{ maxWidth: "760px", margin: "0 auto" }}>
-          <video
-            src={djVid}
-            poster={djImg}
-            controls
-            playsInline
-            preload="metadata"
-            style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:12 }}
-          />
+          {/* Video: staand 4:5, zonder poster, onder de knop */}
+          <div style={{ marginTop:24, maxWidth: 420 }}>
+            <div className="ratio-4x5">
+              <video
+                src={djVid}
+                controls
+                playsInline
+                preload="metadata"
+                style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:12 }}
+              />
+            </div>
+          </div>
         </div>
       </section>
     </>
