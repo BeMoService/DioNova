@@ -1,94 +1,76 @@
 ﻿// src/App.jsx
-import { useEffect, useState } from "react";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
-
+import { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import About from "./pages/About.jsx";
 import DJ from "./pages/DJ.jsx";
 import Model from "./pages/Model.jsx";
 import Contact from "./pages/Contact.jsx";
 
-export default function App(){
-  const loc = useLocation();
+export default function App() {
+  const [open, setOpen] = useState(false);
+  const toggle = () => setOpen(v => !v);
+  const close = () => setOpen(false);
 
-  // Zet data-page op <body> voor per-pagina CSS varianten
-  useEffect(() => {
-    const p = loc.pathname === "/" ? "about"
-            : loc.pathname.replace(/^\//, ""); // dj | model | contact
-    document.body.dataset.page = p || "about";
-  }, [loc.pathname]);
+  const links = [
+    { to: "#/",       label: "Over mij" },
+    { to: "#/dj",     label: "DJ" },
+    { to: "#/model",  label: "Model" },
+    { to: "#/contact",label: "Contact" },
+  ];
 
   return (
     <>
-      <Header />
-      <BgOrnament />
+      {/* vaste witte topbar */}
+      <header style={{
+        position:"sticky", top:0, zIndex:50, background:"#fff",
+        borderBottom:"1px solid #eee"
+      }}>
+        <div style={{
+          maxWidth:1024, margin:"0 auto", padding:"12px 20px",
+          display:"flex", alignItems:"center"
+        }}>
+          <div style={{ fontWeight:600, letterSpacing:.3 }}>DioNova</div>
 
-      <main className="container">
-        <section className="hero">
-          <div className="inner">
-            <h2>Dio Nova</h2>
-          </div>
-        </section>
-
-        <div className="section">
-          <Routes>
-            <Route path="/" element={<About/>} />
-            <Route path="/dj" element={<DJ/>} />
-            <Route path="/model" element={<Model/>} />
-            <Route path="/contact" element={<Contact/>} />
-            <Route path="*" element={<About/>} />
-          </Routes>
+          {/* hamburger RECHTS */}
+          <button
+            aria-label="Open menu"
+            onClick={toggle}
+            className={open ? "hamburger open" : "hamburger"}
+            style={{ marginLeft:"auto" }}
+          >
+            <span></span><span></span><span></span>
+          </button>
         </div>
-      </main>
-    </>
-  );
-}
+      </header>
 
-function Header(){
-  const [open, setOpen] = useState(false);
-  const toggle = () => setOpen(v => !v);
-  const close  = () => setOpen(false);
-
-  useEffect(() => {
-    const onHash = () => setOpen(false);
-    window.addEventListener("hashchange", onHash);
-    return () => window.removeEventListener("hashchange", onHash);
-  },[]);
-
-  return (
-    <header className="site-header">
-      <div className="container header-inner">
-        {/* Desktop nav UIT via CSS (.nav-desktop display:none) */}
-        <nav className="nav-desktop">
-          <Link to="/">Over mij</Link>
-          <Link to="/dj">DJ</Link>
-          <Link to="/model">Model</Link>
-          <Link to="/contact">Contact</Link>
-        </nav>
-
-        <button className={`hamburger ${open ? "open":""}`} onClick={toggle} aria-label="Menu">
+      {/* overlay + drawer rechts */}
+      <div className={open ? "scrim" : "scrim hidden"} onClick={close} />
+      <aside className={`drawer ${open ? "open" : ""}`} aria-hidden={!open}>
+        <button
+          onClick={close}
+          aria-label="Sluit"
+          style={{ alignSelf:"flex-end", marginBottom:12 }}
+          className={open ? "hamburger open" : "hamburger"}
+        >
           <span></span><span></span><span></span>
         </button>
-      </div>
 
-      <div className={`scrim ${open ? "" : "hidden"}`} onClick={close} />
-      <aside className={`drawer ${open ? "open" : ""}`} aria-hidden={!open}>
         <nav style={{ display:"flex", flexDirection:"column", gap:10 }}>
-          <Link to="/" onClick={close}>Over mij</Link>
-          <Link to="/dj" onClick={close}>DJ</Link>
-          <Link to="/model" onClick={close}>Model</Link>
-          <Link to="/contact" onClick={close}>Contact</Link>
+          {links.map(({ to, label }) => (
+            <a key={to} href={to} onClick={close}>{label}</a>
+          ))}
         </nav>
       </aside>
-    </header>
-  );
-}
 
-function BgOrnament(){
-  // vaste container; styling & varianten doen we in CSS via [data-page]
-  return (
-    <div className="orn-wrap" aria-hidden="true">
-      <span className="orn o1"></span>
-      <span className="orn o2"></span>
-    </div>
+      {/* pagina’s */}
+      <main className="container" style={{ padding:"24px 20px 48px" }}>
+        <Routes>
+          <Route path="/" element={<About />} />
+          <Route path="/dj" element={<DJ />} />
+          <Route path="/model" element={<Model />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+    </>
   );
 }

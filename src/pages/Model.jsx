@@ -9,13 +9,11 @@ import m5 from "../assets/model/5.jpg";
 import m6 from "../assets/model/6.jpg";
 import m7 from "../assets/model/7.jpg";
 
-// Vaste volgorde
 const images = [m1, m2, m3, m4, m5, m6, m7];
 
 export default function Model(){
   const [index, setIndex] = useState(0);
 
-  // Auto-advance
   useEffect(() => {
     const t = setInterval(() => setIndex(i => (i + 1) % images.length), 3000);
     return () => clearInterval(t);
@@ -34,26 +32,18 @@ export default function Model(){
             style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:12, userSelect:"none" }}
             draggable={false}
           />
-          {/* Click-zones: links = terug, rechts = verder */}
-          <button
-            onClick={prev}
-            aria-label="Vorige"
-            style={{
-              position:"absolute", left:0, top:0, bottom:0, width:"40%",
-              background:"transparent", border:"none", cursor:"pointer"
-            }}
-          />
-          <button
-            onClick={next}
-            aria-label="Volgende"
-            style={{
-              position:"absolute", right:0, top:0, bottom:0, width:"60%",
-              background:"transparent", border:"none", cursor:"pointer"
-            }}
-          />
+          {/* klikzones */}
+          <button onClick={prev} aria-label="Vorige" style={{
+            position:"absolute", left:0, top:0, bottom:0, width:"40%",
+            background:"transparent", border:"none", cursor:"pointer"
+          }}/>
+          <button onClick={next} aria-label="Volgende" style={{
+            position:"absolute", right:0, top:0, bottom:0, width:"60%",
+            background:"transparent", border:"none", cursor:"pointer"
+          }}/>
         </div>
 
-        {/* Dots onder de foto */}
+        {/* dots */}
         <ul style={{ display:"flex", gap:8, marginTop:12, listStyle:"none", padding:0 }}>
           {images.map((_, i) => (
             <li
@@ -73,12 +63,14 @@ export default function Model(){
       <div className="col-text">
         <h1 className="page-title">Model</h1>
         <p>
-          Ik werk aan shoots van lifestyle en fashion tot high-end campagnes. Ik ben inzetbaar voor verschillende stijlen, thema’s en concepten, zoals editorials, lookbooks, reels en branding visuals.
+          Ik werk aan shoots voor lifestyle, fashion en campagnes, maar ook voor videoclips en korte reels. Ik ben inzetbaar voor verschillende stijlen, thema’s en concepten, zoals editorials, lookbooks en branding visuals.
         </p>
         <p style={{ marginTop:16 }}>
           Mijn kracht is meebewegen met merken, artiesten en fotografen en samen beelden maken die een gevoel overbrengen. Met expressieve poses, clean styling en oog voor detail creëren we beelden die blijven hangen.
         </p>
-        <a href="#/contact" className="btn" style={{ marginTop:20 }}>Boek voor shoot</a>
+        <a href="#/contact" className="btn" style={{ marginTop:20 }}>
+          Boek voor shoot
+        </a>
       </div>
     </section>
   );

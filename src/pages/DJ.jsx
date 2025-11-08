@@ -19,16 +19,19 @@ export default function DJ(){
       {/* Tekst rechts */}
       <div className="col-text">
         <h1 className="page-title">DJ</h1>
+
         <p>
-          DJ Dio Nova draait energieke sets vol verrassingen en sfeer. Met een mix van house, techno en urban krijgt ze elke zaal in beweging. Of het nu een club, festival, café of privéfeest is, ze bouwt de sfeer op tot het dak eraf gaat.
+          Ik draai sets vol energie, verrassingen en sfeer. Met een mix van house, techno en urban weet ik elke zaal in beweging te krijgen. Of het nu een club, festival, café of privéfeest is, ik voel de sfeer aan en bouw die met volle energie op tot het dak eraf gaat.
         </p>
         <p style={{ marginTop:16 }}>
-          Onvoorspelbaar, energiek en altijd in contact met het publiek. Haar sets zijn een beleving. Ze draait niet zomaar tracks maar creëert momenten die mensen onthouden.
+          Onvoorspelbaar, energiek en altijd in contact met het publiek. Mijn sets zijn een beleving op zich. Ik draai niet zomaar tracks, ik creëer momenten die mensen niet vergeten.
         </p>
 
-        <a href="#/contact" className="btn" style={{ marginTop:20 }}>Boek DJ Dio Nova</a>
+        <a href="#/contact" className="btn" style={{ marginTop:20 }}>
+          Boek DJ Dio Nova
+        </a>
 
-        {/* Video klein, onder de knop */}
+        {/* Video kleiner onder de knop, staand gekaderd */}
         <div style={{ marginTop:24, maxWidth:420 }}>
           <div className="ratio-4x5">
             <video
