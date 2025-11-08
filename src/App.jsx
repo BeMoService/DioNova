@@ -1,5 +1,5 @@
 ﻿// src/App.jsx
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import About from "./pages/About.jsx";
 import DJ from "./pages/DJ.jsx";
 import Model from "./pages/Model.jsx";
@@ -7,15 +7,16 @@ import Contact from "./pages/Contact.jsx";
 
 export default function App() {
   return (
-    <HashRouter>
+    <>
       <div className="bg-ornament" />
+
       <header className="site-header">
         <div className="container header-inner">
           <nav style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-            <a href="#/">Over mij</a>
-            <a href="#/dj">DJ</a>
-            <a href="#/model">Model</a>
-            <a href="#/contact">Contact</a>
+            <Link to="/">Over mij</Link>
+            <Link to="/dj">DJ</Link>
+            <Link to="/model">Model</Link>
+            <Link to="/contact">Contact</Link>
           </nav>
         </div>
       </header>
@@ -38,6 +39,6 @@ export default function App() {
           </Routes>
         </div>
       </main>
-    </HashRouter>
+    </>
   );
 }
