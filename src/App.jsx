@@ -1,76 +1,82 @@
-﻿import { Outlet, useLocation } from "react-router-dom";
-import { useState } from "react";
+﻿// src/App.jsx
+import { useEffect, useMemo, useState } from "react";
+import { HashRouter, Routes, Route, Link } from "react-router-dom";
 
-function PageHero() {
-  const { pathname } = useLocation();
-  const map = {
-    "/":        { title: "Over mij", subtitle: "" },
-    "/dj":      { title: "DJ",       subtitle: "" },
-    "/model":   { title: "Model",    subtitle: "Shoots & videoclips" },
-    "/contact": { title: "Contact",  subtitle: "Boekingen & samenwerkingen" },
-  };
-  const { title, subtitle } = map[pathname] || map["/"];
+import About from "./pages/About.jsx";
+import DJ from "./pages/DJ.jsx";
+import Model from "./pages/Model.jsx";
+import Contact from "./pages/Contact.jsx";
+
+export default function App(){
   return (
-    <div className="hero">
-      <div className="container inner">
-        <h2>{title}</h2>
-        {subtitle ? <p>{subtitle}</p> : <span />}
-      </div>
-    </div>
+    <HashRouter>
+      <div className="bg-ornament" />
+
+      <Header />
+
+      <main className="container">
+        <section className="hero">
+          <div className="inner">
+            <h2>Dio Nova</h2>
+            <p>DJ • Model</p>
+          </div>
+        </section>
+
+        <div className="section">
+          <Routes>
+            <Route path="/" element={<About />} />
+            <Route path="/dj" element={<DJ />} />
+            <Route path="/model" element={<Model />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
+      </main>
+    </HashRouter>
   );
 }
 
-export default function App() {
+function Header(){
   const [open, setOpen] = useState(false);
-  const close = () => setOpen(false);
+  const toggle = () => setOpen(v => !v);
+  const close  = () => setOpen(false);
 
-  // ZIJBALK ITEMS (NL)  Over mij MOET hier staan
-  const links = [
+  // ZIJBALK ITEMS (NL)
+  const links = useMemo(() => ([
     { to: "#/",        label: "Over mij" },
     { to: "#/dj",      label: "DJ" },
     { to: "#/model",   label: "Model" },
     { to: "#/contact", label: "Contact" },
-  ];
+  ]),[]);
+
+  useEffect(() => {
+    const onHash = () => setOpen(false);
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  },[]);
 
   return (
-    <div style={{ minHeight: "100dvh", display: "flex", flexDirection: "column", position: "relative" }}>
-      <div className="bg-ornament" />
+    <header className="site-header">
+      <div className="container header-inner">
+        {/* Geen logo linksboven – op verzoek verwijderd */}
+        <nav className="hide-mobile" style={{ display:"flex", gap:16 }}>
+          {links.map(({to,label}) => (
+            <a key={to} href={to} style={{ padding:"8px 10px", borderRadius:8, border:"1px solid transparent" }}>
+              {label}
+            </a>
+          ))}
+        </nav>
 
-      <header
-        style={{
-          position: "fixed",
-          top: 0, left: 0, width: "100%", height: 68,
-          background: "rgba(255,255,255,0.9)",
-          backdropFilter: "blur(6px)",
-          borderBottom: "1px solid var(--line)",
-          zIndex: 80
-        }}
-      >
-        <div className="container" style={{height:"100%", display:"flex", alignItems:"center", justifyContent:"space-between", gap:16}}>
-          <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-          </div>
+        <button
+          className={`hamburger ${open ? "open" : ""}`}
+          onClick={toggle}
+          aria-label="Menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
 
-          <button
-            className={`hamburger ${open ? "open" : ""}`}
-            aria-label="Menu"
-            onClick={() => setOpen(!open)}
-          >
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </header>
-
-      <PageHero />
-
-      <main className="container" style={{ flex: 1 }}>
-        <Outlet />
-      </main>
-
-      <footer className="container" style={{ padding: "28px 0 40px", color: "var(--muted)", fontSize: 14 }}>
-        © {new Date().getFullYear()} DioNova
-      </footer>
-
-      <div className={`scrim ${open ? "" : "hidden"}`} onClick={close}></div>
+      {/* Drawer */}
+      <div className={`scrim ${open ? "" : "hidden"}`} onClick={close} />
       <aside className={`drawer ${open ? "open" : ""}`} aria-hidden={!open}>
         <nav style={{ display:"flex", flexDirection:"column", gap:10 }}>
           {links.map(({ to, label }) => (
@@ -78,6 +84,6 @@ export default function App() {
           ))}
         </nav>
       </aside>
-    </div>
+    </header>
   );
 }

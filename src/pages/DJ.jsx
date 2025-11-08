@@ -10,20 +10,18 @@ const media = [
 
 export default function DJ() {
   const [idx, setIdx]   = useState(0);
-  const [muted, setMuted] = useState(true); // start muted voor autoplay
+  const [muted, setMuted] = useState(true);
   const vidRef = useRef(null);
 
   const next = useCallback(() => setIdx(i => (i + 1) % media.length), []);
   const prev = useCallback(() => setIdx(i => (i - 1 + media.length) % media.length), []);
 
-  // Auto-advance alleen op foto
   useEffect(() => {
     if (media[idx].type !== "image") return;
     const id = setInterval(next, 3500);
     return () => clearInterval(id);
   }, [idx, next]);
 
-  // Als we video tonen: reset & autoplay (muted), playsInline voor mobiel
   useEffect(() => {
     if (media[idx].type !== "video" || !vidRef.current) return;
     try {
@@ -36,7 +34,6 @@ export default function DJ() {
 
   const onEnded = useCallback(() => next(), [next]);
 
-  // Tap-to-unmute
   const toggleMute = useCallback((e) => {
     e.stopPropagation();
     if (!vidRef.current) return;
@@ -46,7 +43,7 @@ export default function DJ() {
     vidRef.current.play().catch(() => {});
   }, [muted]);
 
-  // Swipe
+  // swipe
   const sx = useRef(0), ex = useRef(0);
   const onTouchStart = (e) => (sx.current = e.touches[0].clientX);
   const onTouchMove  = (e) => (ex.current = e.touches[0].clientX);
@@ -70,7 +67,6 @@ export default function DJ() {
 
   return (
     <section className="grid grid-2">
-      {/* MEDIA met vast 4:5 frame (desktop én mobiel) */}
       <div
         className="col-image"
         style={{ position: "relative", userSelect: "none" }}
@@ -94,7 +90,6 @@ export default function DJ() {
                 muted={muted}
                 onEnded={onEnded}
               />
-              {/* Unmute/mute overlay */}
               <button
                 onClick={toggleMute}
                 style={{
@@ -119,11 +114,10 @@ export default function DJ() {
         <div role="button" aria-label="Volgende slide" style={rightZone} onClick={next} />
       </div>
 
-      {/* TEKST */}
       <div className="col-text">
         <p>
           DJ Dio Nova draait sets vol energie, verrassingen en sfeer. Met een mix van house, techno en urban weet ze
-          elke zaal in beweging te krijgen. Of het nu een club, festival, café of privéfeest is — ze voelt de sfeer aan
+          elke zaal in beweging te krijgen. Of het nu een club, festival, café of privéfeest is, ze voelt de sfeer aan
           en bouwt die met volle energie op tot het dak eraf gaat.
         </p>
         <p style={{ marginTop: 16 }}>

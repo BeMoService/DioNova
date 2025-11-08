@@ -4,12 +4,13 @@ html, body, #root { height: 100%; }
 
 /* Thema — warmer beige */
 :root{
-  --bg: #efe3d0;     /* beige */
-  --ink: #222;       /* tekst */
-  --muted: #6f655b;  /* subtiele tekst */
-  --line: #e2d6c3;   /* borders (hero/onderstreep) */
-  --accent: #111;    /* donker */
-  --gold: #d4af37;   /* goud */
+  --bg: #e9dcc7;     /* iets meer beige */
+  --ink: #222;
+  --muted: #6f655b;
+  --line: #e1d6c4;
+  --accent: #111;
+  --gold: #d4af37;
+  --shadow: 0 6px 18px rgba(0,0,0,.06);
 }
 
 body {
@@ -30,49 +31,34 @@ h1 { font-size: 1.9rem; margin-bottom: 12px; font-weight: 700; letter-spacing: .
 p  { font-size: 1.05rem; line-height: 1.8; color: var(--ink); }
 a { color: inherit; text-decoration: none; }
 
-/* Knoppen (zwart met witte tekst) */
+/* Knoppen (goud) */
 .btn {
   display: inline-block;
   padding: 12px 24px;
-  background: #000;
-  color: #fff;                    /* wit */
+  background: var(--gold);
+  color: #111;
   border-radius: 10px;
   font-weight: 650;
   letter-spacing: .2px;
-  border: 1px solid #000;
-  transition: all .25s ease;
-  box-shadow: 0 0 0px rgba(212,175,55,0);
+  border: 1px solid var(--gold);
+  transition: background .2s ease, border-color .2s ease, transform .1s ease, box-shadow .2s ease;
+  box-shadow: 0 3px 10px rgba(212,175,55,.18);
 }
-.btn:hover {
-  background: #111;
-  border-color: var(--gold);
-  color: var(--gold);             /* tekst goud bij hover */
-  box-shadow: 0 0 8px rgba(212,175,55,0.4);
-  transform: translateY(-1px);
-}
+.btn:hover { filter: brightness(1.05); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(212,175,55,.26); }
 .btn:active { transform: translateY(0); }
 
-/* Hero */
-.hero { position: relative; z-index: 1; margin-top: 100px; }
-.hero .inner {
-  display: flex; align-items: flex-end; justify-content: space-between;
-  padding: 12px 0 20px; border-bottom: 1px solid var(--line); margin-bottom: 22px;
+/* Header (sticky) */
+.site-header{
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(233,220,199,.88); /* halftransparant beige */
+  backdrop-filter: saturate(120%) blur(6px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--shadow);
 }
-.hero h2 { font-size: 1.4rem; font-weight: 600; letter-spacing: .4px; }
-.hero p  { color: var(--muted); }
-
-/* Gouden gloed */
-.bg-ornament { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
-.bg-ornament::before {
-  content: ""; position: absolute; width: 520px; height: 520px; right: -140px; top: 60px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(212,175,55,0.22), rgba(212,175,55,0) 60%);
-  filter: blur(12px);
-}
-.bg-ornament::after {
-  content: ""; position: absolute; width: 640px; height: 640px; left: -160px; bottom: -140px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,0,0,0.06), rgba(0,0,0,0) 60%);
+.header-inner{
+  height: 64px;
+  display:flex; align-items:center; justify-content: space-between;
+  gap: 12px;
 }
 
 /* Hamburger & drawer */
@@ -85,56 +71,54 @@ a { color: inherit; text-decoration: none; }
 .hamburger.open span:nth-child(2){ opacity: 0; }
 .hamburger.open span:nth-child(3){ transform: rotate(-45deg); top: 13px; }
 
-/* Overlay */
-.scrim { position: fixed; inset: 0; background: rgba(0,0,0,.6); backdrop-filter: blur(2px); z-index: 110; opacity: 1; transition: opacity .25s ease; } /* ↑ boven header */
+.scrim { position: fixed; inset: 0; background: rgba(0,0,0,.6); backdrop-filter: blur(2px); z-index: 60; opacity: 1; transition: opacity .25s ease; }
 .scrim.hidden { opacity: 0; pointer-events: none; }
 
-/* Drawer */
-.drawer {
-  position: fixed; top: 0; right: 0; height: 100vh; width: 78vw; max-width: 320px;
-  background: #111; color: #fff; z-index: 120;   /* ↑ boven header (header ~80) */
-  transform: translateX(100%); transition: transform .3s ease;
-  display: flex; flex-direction: column;
-  padding: calc(24px + 68px) 24px 24px;          /* ↑ ruimte onder de vaste header (68px) */
-  gap: 12px;
-}
+.drawer { position: fixed; top: 0; right: 0; height: 100vh; width: 78vw; max-width: 320px; background: #111; color: #fff; z-index: 70;
+  transform: translateX(100%); transition: transform .3s ease; display: flex; flex-direction: column; padding: 24px; gap: 12px; }
 .drawer.open { transform: translateX(0%); }
 .drawer a { padding: 12px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,.08); }
 .drawer a:hover { border-color: var(--gold); color: var(--gold); }
 
-/* MOBIEL: < 900px */
+/* Hero / sectie-accent */
+.hero { position: relative; z-index: 1; margin-top: 12px; }
+.hero .inner {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding: 14px 0 18px; border-bottom: 1px solid var(--line); margin-bottom: 22px;
+}
+.hero h2 { font-size: 1.4rem; font-weight: 600; letter-spacing: .4px; }
+.hero p  { color: var(--muted); }
+
+/* Subtiele variatie / minder eentonig */
+.section {
+  padding: 8px 0 4px;
+  position: relative;
+}
+.section::before{
+  content:""; position:absolute; left:0; right:0; top:-6px; height: 10px;
+  background: linear-gradient(to right, rgba(212,175,55,.16), rgba(212,175,55,0));
+  filter: blur(10px);
+  pointer-events:none;
+}
+
+/* Gouden gloed (achtergrond) */
+.bg-ornament { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.bg-ornament::before {
+  content: ""; position: absolute; width: 520px; height: 520px; right: -140px; top: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,175,55,0.18), rgba(212,175,55,0) 60%);
+  filter: blur(12px);
+}
+.bg-ornament::after {
+  content: ""; position: absolute; width: 640px; height: 640px; left: -160px; bottom: -140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,0,0,0.05), rgba(0,0,0,0) 60%);
+}
+
+/* GRID responsive */
 @media (max-width: 899px) {
   .container { padding: 0 16px; }
   .grid-2 { grid-template-columns: 1fr; }
   .col-image { order: -1; } /* beeld boven tekst */
   .hero .inner { flex-direction: column; align-items: flex-start; gap: 4px; }
-}
-
-/* --- Media frame: vaste verhouding + geen overflow --- */
-.media-frame{
-  position: relative;
-  width: 100%;
-  max-width: 640px;          /* desktop cap */
-  border-radius: 12px;
-  overflow: hidden;
-  background: #000;          /* voorkomt beige rand bij video */
-  margin: 0 auto;            /* centreer in kolom */
-}
-.media-frame.ratio-4x5{ aspect-ratio: 4 / 5; }
-
-/* Child vult frame exact */
-.media-frame > img,
-.media-frame > video{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;         /* geen letterboxing vanuit layout */
-  object-position: center;   /* crop centreren */
-  display: block;
-}
-
-/* Mobiel: iets smaller cap zodat hij nooit te groot voelt */
-@media (max-width: 899px){
-  .media-frame{ max-width: 520px; }
 }
