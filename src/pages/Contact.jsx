@@ -1,45 +1,28 @@
-const IconMail = (props) => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" {...props}>
-    <path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" stroke="currentColor" strokeWidth="1.6" />
-    <path d="M22 8l-9.2 6.1a2 2 0 0 1-2.2 0L1.9 8" stroke="currentColor" strokeWidth="1.6" />
-  </svg>
-);
-const IconIg = (props) => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" {...props}>
-    <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.6"/>
-    <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.6"/>
-    <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
-  </svg>
-);
-
-export default function Contact() {
+// src/pages/Contact.jsx
+export default function Contact(){
   return (
-    <section className="grid" style={{ gap: 16 }}>
-      <div>
-        <h1>Boekingen & Contact</h1>
-        <p style={{ lineHeight: 1.6 }}>
-          Wil je Dio Nova boeken of samenwerken voor een shoot of event? Neem direct contact op. Ik reageer zo snel mogelijk.
+    <section className="grid grid-2">
+      <div className="col-image">
+        <div className="ratio-4x5">
+          <img src="images/contact.jpg" alt="Contact Dio Nova" />
+        </div>
+      </div>
+
+      <div className="col-text">
+        <h1 className="page-title">Contact</h1>
+        <p>
+          Wil je samenwerken of boeken voor een show, shoot of project? 
+          Stuur gerust een bericht of neem contact op via social media.
         </p>
 
-        <div style={{ display: "grid", gap: 10, marginTop: 14 }}>
-          <a
-            href="mailto:Dioniciascholten3@gmail.com"
-            style={{ display: "inline-flex", alignItems: "center", gap: 8, fontWeight: 600 }}
-          >
-            <IconMail /> Dioniciascholten3@gmail.com
-          </a>
-          <a
-            href="https://instagram.com/dionicia19_"
-            target="_blank"
-            rel="noreferrer"
-            style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
-          >
-            <IconIg /> @dionicia19_
-          </a>
-        </div>
+        <p style={{ marginTop:16 }}>
+          <strong>E-mail:</strong><br/>
+          <a href="mailto:dionovanl@outlook.com">dionovanl@outlook.com</a>
+        </p>
 
-        <p className="subtle" style={{ marginTop: 18, fontSize: 14 }}>
-          Vermeld bij boekingen: datum, locatie, type event of shoot, verwachte duur en voorkeuren.
+        <p style={{ marginTop:16 }}>
+          <strong>Instagram:</strong><br/>
+          <a href="https://www.instagram.com/dio.nova" target="_blank" rel="noreferrer">@dio.nova</a>
         </p>
       </div>
     </section>

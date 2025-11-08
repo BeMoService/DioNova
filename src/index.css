@@ -104,3 +104,58 @@ img.resp{ display:block; width:100%; height:auto; border-radius:12px; }
   .grid-2{ grid-template-columns:1fr; }
   .col-image{ order:-1; } /* eerst beeld, dan tekst */
 }
+/* ===== Per-pagina accenten ===== */
+body[data-page="about"] { --accent-color: #b38b3b; }
+body[data-page="dj"]    { --accent-color: #7c5cff; }
+body[data-page="model"] { --accent-color: #e4572e; }
+body[data-page="contact"]{ --accent-color: #0e8f6e; }
+
+/* Titel-underline */
+.page-title{
+  position: relative;
+  padding-bottom: 6px;
+}
+.page-title::after{
+  content:"";
+  position:absolute; left:0; bottom:0; height:3px; width:72px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-color), transparent 70%);
+  opacity:.9;
+}
+
+/* Mini varianten voor knoppen per pagina (heel subtiel) */
+body[data-page="model"] .btn:hover{
+  box-shadow: 0 0 0 2px var(--accent-color) inset, 0 4px 14px rgba(0,0,0,.08);
+}
+body[data-page="contact"] .btn{
+  border-color: var(--accent-color);
+}
+body[data-page="contact"] .btn:hover{
+  filter:none;
+  box-shadow: 0 0 0 2px var(--accent-color) inset;
+}
+
+/* ===== Achtergrond ornamenten ===== */
+.orn-wrap{ position: fixed; inset: 0; pointer-events:none; z-index: 0; }
+.orn{
+  position:absolute; border-radius:50%;
+  filter: blur(10px);
+  opacity:.9;
+}
+
+/* default posities (fallback) */
+.orn.o1{ width:520px; height:520px; right:-140px; top:80px; }
+.orn.o2{ width:640px; height:640px; left:-160px; bottom:-140px; }
+
+/* kleurvarianten per pagina */
+body[data-page="about"] .orn.o1{ background: radial-gradient(circle, rgba(179,139,59,0.22), rgba(179,139,59,0) 60%); }
+body[data-page="about"] .orn.o2{ background: radial-gradient(circle, rgba(0,0,0,0.05), rgba(0,0,0,0) 60%); }
+
+body[data-page="dj"] .orn.o1{ background: radial-gradient(circle, rgba(124,92,255,0.25), rgba(124,92,255,0) 60%); top: 140px; right: -120px; }
+body[data-page="dj"] .orn.o2{ background: radial-gradient(circle, rgba(0,0,0,0.06), rgba(0,0,0,0) 60%); left: -120px; bottom: -120px; }
+
+body[data-page="model"] .orn.o1{ background: radial-gradient(circle, rgba(228,87,46,0.22), rgba(228,87,46,0) 60%); top: 60px; right: -160px; }
+body[data-page="model"] .orn.o2{ background: radial-gradient(circle, rgba(0,0,0,0.06), rgba(0,0,0,0) 60%); left: -180px; bottom: -160px; }
+
+body[data-page="contact"] .orn.o1{ background: radial-gradient(circle, rgba(14,143,110,0.22), rgba(14,143,110,0) 60%); top: 100px; right: -100px; }
+body[data-page="contact"] .orn.o2{ background: radial-gradient(circle, rgba(0,0,0,0.06), rgba(0,0,0,0) 60%); left: -140px; bottom: -120px; }
