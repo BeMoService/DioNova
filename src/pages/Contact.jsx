@@ -2,11 +2,10 @@
 export default function Contact(){
   return (
     <section className="grid grid-2">
-      {/* Geen foto op contact */}
       <div className="col-text">
         <h1 className="page-title">Contact</h1>
         <p>
-          Wil je boeken of samenwerken voor een shoot of event? Neem direct contact op. Ik reageer zo snel mogelijk.
+          Wil je boeken of samenwerken voor een shoot of event? Neem direct contact op.
         </p>
 
         <p style={{ marginTop:16 }}>
