@@ -1,27 +1,37 @@
-// src/pages/Contact.jsx
-export default function Contact(){
-  return (
-    <section className="grid grid-2">
-      <div className="col-text">
-        <h1 className="page-title">Contact</h1>
-        <p>
-          Wil je boeken of samenwerken voor een shoot of event? Neem direct contact op.
-        </p>
-
-        <p style={{ marginTop:16 }}>
-          <span style={{ marginRight:8 }}>📧</span>
-          <a href="mailto:Dioniciascholten3@gmail.com">Dioniciascholten3@gmail.com</a>
-        </p>
-
-        <p style={{ marginTop:8 }}>
-          <span style={{ marginRight:8 }}>📷</span>
-          <a href="https://www.instagram.com/dionicia19_" target="_blank" rel="noreferrer">@dionicia19_</a>
-        </p>
-
-        <p style={{ marginTop:16, color:"var(--muted)" }}>
-          Vermeld bij boekingen: datum, locatie, type event of shoot, verwachte duur en voorkeuren.
-        </p>
-      </div>
-    </section>
-  );
-}
+import MediaFrame from "../components/MediaFrame.jsx";
+import { SecondaryMedia } from "../components/PageSideContent.jsx";
+import { contactHeroImage, contactSecondaryImage } from "../config/media.js";
+
+export default function Contact() {
+  return (
+    <section className="grid grid-2 section">
+      <div className="col-image">
+        <MediaFrame src={contactHeroImage} alt="" label="Contact — afbeelding" />
+      </div>
+
+      <div className="col-text">
+        <h1 className="page-title">Contact</h1>
+
+        <div className="content-slot content-slot--lead" aria-label="Intro tekst volgt" />
+
+        <div className="contact-lines">
+          <div className="contact-line">
+            <span className="contact-icon" aria-hidden>
+              ✉
+            </span>
+            <span className="contact-placeholder">E-mail volgt</span>
+          </div>
+          <div className="contact-line">
+            <span className="contact-icon" aria-hidden>
+              ◎
+            </span>
+            <span className="contact-placeholder">Social / link volgt</span>
+          </div>
+        </div>
+
+        <div className="content-slot content-slot--short" aria-label="Tekstblok — inhoud volgt" />
+        <SecondaryMedia src={contactSecondaryImage} label="Media volgt" />
+      </div>
+    </section>
+  );
+}
