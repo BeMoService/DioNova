@@ -80,6 +80,108 @@ body {
   color: var(--ink);
 }
 
+.site-hero {
+  margin-bottom: 32px;
+  padding-bottom: 8px;
+}
+.site-slogan {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+.site-headline {
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  margin-bottom: 14px;
+  color: var(--ink);
+}
+
+.page-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+.page-body p {
+  line-height: 1.75;
+  color: var(--ink);
+}
+.page-tagline {
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--accent-color);
+  margin-top: -4px;
+}
+.page-subtitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-top: 6px;
+  color: var(--ink);
+}
+
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+}
+.feature-list li {
+  position: relative;
+  padding: 12px 14px 12px 36px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--line);
+  line-height: 1.55;
+  font-size: 0.97rem;
+}
+.feature-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.trip-card {
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--line);
+}
+.trip-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+.trip-card .feature-list li {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.price-tag {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  background: rgba(31, 107, 84, 0.08);
+  border: 1px solid rgba(31, 107, 84, 0.2);
+}
+
+.note-text {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.6;
+  font-style: italic;
+}
+
 /* Buttons */
 .btn {
   display: inline-block;
@@ -117,6 +219,14 @@ body {
 .brand-slot {
   flex: 1;
   min-height: 1px;
+  display: flex;
+  align-items: center;
+}
+.brand-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  color: var(--accent-color);
 }
 
 .nav-desktop { display: none !important; }
@@ -283,8 +393,14 @@ body {
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid var(--line);
 }
-.contact-icon { color: var(--accent-color); font-size: 1rem; }
-.contact-placeholder { color: var(--muted); font-size: 0.95rem; }
+.contact-line--link {
+  transition: border-color 0.2s, background 0.2s;
+}
+.contact-line--link:hover {
+  border-color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.85);
+}
+.contact-icon { color: var(--accent-color); font-size: 1rem; flex-shrink: 0; }
 
 .route-list {
   display: flex;

@@ -1,16 +1,18 @@
 ﻿import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import About from "./pages/About.jsx";
-import DJ from "./pages/DJ.jsx";
-import Toda from "./pages/Toda.jsx";
-import Model from "./pages/Model.jsx";
+import WatWeBieden from "./pages/WatWeBieden.jsx";
+import Reizen from "./pages/Reizen.jsx";
+import Trainingen from "./pages/Trainingen.jsx";
+import Clubs from "./pages/Clubs.jsx";
+import WieIsMimi from "./pages/WieIsMimi.jsx";
 import Contact from "./pages/Contact.jsx";
 
 const PAGE_BY_PATH = {
-  "/": "home",
-  "/dj": "trips",
-  "/toda": "toda",
-  "/model": "gallery",
+  "/": "aanbod",
+  "/reizen": "reizen",
+  "/trainingen": "trainingen",
+  "/clubs": "clubs",
+  "/mimi": "mimi",
   "/contact": "contact",
 };
 
@@ -21,7 +23,7 @@ export default function App() {
   const close = () => setOpen(false);
 
   useEffect(() => {
-    document.body.dataset.page = PAGE_BY_PATH[location.pathname] ?? "home";
+    document.body.dataset.page = PAGE_BY_PATH[location.pathname] ?? "aanbod";
   }, [location.pathname]);
 
   useEffect(() => {
@@ -29,18 +31,21 @@ export default function App() {
   }, [location.pathname]);
 
   const links = [
-    { to: "#/", label: "Home" },
-    { to: "#/dj", label: "Reizen" },
-    { to: "#/toda", label: "Toda" },
-    { to: "#/model", label: "Galerij" },
-    { to: "#/contact", label: "Contact" },
+    { to: "#/", label: "Wat we bieden" },
+    { to: "#/reizen", label: "Onze reizen" },
+    { to: "#/trainingen", label: "De trainingen" },
+    { to: "#/clubs", label: "Onze clubs" },
+    { to: "#/mimi", label: "Wie is Mimi" },
+    { to: "#/contact", label: "Contactgegevens" },
   ];
 
   return (
     <div className="app-shell">
       <header className="site-header">
         <div className="header-inner container">
-          <div className="brand-slot" aria-label="Merknaam volgt" />
+          <div className="brand-slot" aria-label="MiMipadel">
+            <span className="brand-name">MiMipadel</span>
+          </div>
 
           <button
             type="button"
@@ -80,10 +85,11 @@ export default function App() {
 
       <main className="container main-shell">
         <Routes>
-          <Route path="/" element={<About />} />
-          <Route path="/dj" element={<DJ />} />
-          <Route path="/toda" element={<Toda />} />
-          <Route path="/model" element={<Model />} />
+          <Route path="/" element={<WatWeBieden />} />
+          <Route path="/reizen" element={<Reizen />} />
+          <Route path="/trainingen" element={<Trainingen />} />
+          <Route path="/clubs" element={<Clubs />} />
+          <Route path="/mimi" element={<WieIsMimi />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
