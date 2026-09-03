@@ -1,6 +1,6 @@
 {
     "hosting": {
-      "site": "dionova",
+      "site": "mimipadel",
       "public": "dist",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "headers": [
