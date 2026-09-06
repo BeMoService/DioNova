@@ -294,9 +294,22 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 14px;
   width: min(520px, 100%);
   pointer-events: auto;
+}
+
+.home-hero__brand {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4.5vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-transform: lowercase;
+  color: var(--gold);
+  margin: 0;
+  opacity: 0;
+  animation: slogan-line-in 0.45s ease-out 0.12s both;
 }
 
 .home-hero__logo-wrap {
@@ -396,6 +409,12 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .home-hero__logo-wrap {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .home-hero__brand {
     animation: none;
     opacity: 1;
     transform: none;
