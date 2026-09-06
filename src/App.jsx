@@ -8,6 +8,7 @@ import WieIsMimi from "./pages/WieIsMimi.jsx";
 import Contact from "./pages/Contact.jsx";
 import AlgemeneVoorwaarden from "./pages/AlgemeneVoorwaarden.jsx";
 import BackgroundShapes from "./components/BackgroundShapes.jsx";
+import CornerLogo from "./components/CornerLogo.jsx";
 
 const PAGE_BY_PATH = {
   "/": "aanbod",
@@ -106,6 +107,8 @@ export default function App() {
         </span>
         <span>mimi padel</span>
       </footer>
+
+      <CornerLogo key={location.pathname} />
     </div>
   );
 }
