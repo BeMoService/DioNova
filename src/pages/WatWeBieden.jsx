@@ -7,13 +7,11 @@ export default function WatWeBieden() {
   return (
     <section className="home-page section">
       <div className="home-hero">
-        <div className="home-hero__logo-wrap">
-          <div className="home-hero__logo-art">
-            <img src={logoImage} alt="" className="home-hero__logo" />
-            <p className="home-hero__brand-in-logo">mimi padel</p>
-            <div className="home-hero__slogan-overlay">
-              <HeroSlogan hideBrand />
-            </div>
+        <div className="home-hero__logo">
+          <img src={logoImage} alt="" className="home-hero__logo-img" />
+          <p className="home-hero__logo-brand">mimi padel</p>
+          <div className="home-hero__logo-slogan">
+            <HeroSlogan hideBrand />
           </div>
         </div>
 

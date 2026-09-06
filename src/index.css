@@ -291,47 +291,24 @@ body {
   box-sizing: border-box;
 }
 
-.home-hero__logo-wrap {
+.home-hero__logo {
   position: relative;
   width: min(420px, 92vw);
   max-width: 100%;
 }
 
-.home-hero__logo-art {
-  position: relative;
-  line-height: 0;
-}
-
-.home-hero__slogan-overlay {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 21%;
-  padding: 0 12px;
-  z-index: 3;
-  text-align: center;
-  pointer-events: none;
-}
-
-.home-hero__slogan-overlay .hero-slogan__line {
-  opacity: 1;
-  transform: none;
-  animation: none;
-}
-
-.home-hero__logo {
+.home-hero__logo-img {
   display: block;
   width: 100%;
   height: auto;
-  max-width: 100%;
 }
 
-.home-hero__brand-in-logo {
+.home-hero__logo-brand {
   position: absolute;
   top: 4.5%;
   left: 0;
   right: 0;
-  z-index: 3;
+  z-index: 2;
   margin: 0;
   text-align: center;
   font-family: var(--font-display);
@@ -345,7 +322,24 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: slogan-shimmer 5s ease-in-out infinite;
+}
+
+.home-hero__logo-slogan {
+  position: absolute;
+  top: 59%;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 0 10px;
+  text-align: center;
+  background: none;
+  pointer-events: none;
+}
+
+.home-hero__logo-slogan .hero-slogan__line {
+  opacity: 1;
+  transform: none;
+  animation: none;
 }
 
 .home-hero__intro {
@@ -400,12 +394,12 @@ body {
     min-height: 92dvh;
   }
 
-  .home-hero__brand-in-logo {
+  .home-hero__logo-brand {
     top: 4%;
   }
 
-  .home-hero__slogan-overlay {
-    bottom: 20%;
+  .home-hero__logo-slogan {
+    top: 58%;
     padding: 0 8px;
   }
 
@@ -415,7 +409,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-hero__brand-in-logo {
+  .home-hero__logo-brand {
     opacity: 1;
   }
 }
