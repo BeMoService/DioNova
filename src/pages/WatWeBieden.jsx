@@ -6,7 +6,7 @@ import logoImage from "../assets/mimipadel-logo.png";
 export default function WatWeBieden() {
   return (
     <section className="home-page section">
-      <div className="home-hero">
+      <div className="home-panel home-panel--hero">
         <div className="home-hero__logo">
           <img src={logoImage} alt="" className="home-hero__logo-img" />
         </div>
@@ -24,7 +24,7 @@ export default function WatWeBieden() {
         </div>
       </div>
 
-      <div className="home-content">
+      <div className="home-panel home-panel--body home-content">
         <h2 className="page-title">Wat we bieden</h2>
 
         <div className="page-body">

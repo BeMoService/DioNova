@@ -265,18 +265,20 @@ body {
   overflow: hidden;
 }
 
-/* Home — sticky logo hero + scroll-over content (geen witte vlakken) */
+/* Home — sticky hero (paneel 1) + scroll-over content (paneel 2) */
 .home-page {
   position: relative;
-  width: 100%;
-  padding-bottom: 48px;
+  width: calc(100% + 40px);
+  max-width: none;
+  margin: 0 -20px;
+  padding-bottom: 0;
 }
 
 .home-page.section {
   padding: 0;
 }
 
-.home-hero {
+.home-panel--hero {
   position: sticky;
   top: 0;
   z-index: 0;
@@ -289,6 +291,35 @@ body {
   gap: 20px;
   padding: 84px 16px 32px;
   box-sizing: border-box;
+}
+
+.home-panel--body {
+  position: relative;
+  z-index: 2;
+  margin-top: -1px;
+  padding: 52px 24px 64px;
+  border-radius: 28px 28px 0 0;
+  background:
+    radial-gradient(ellipse 95% 75% at 5% 10%, rgba(74, 84, 46, 0.58) 0%, transparent 52%),
+    radial-gradient(ellipse 70% 55% at 95% 5%, rgba(201, 162, 39, 0.25) 0%, transparent 48%),
+    radial-gradient(ellipse 60% 45% at 88% 90%, rgba(201, 162, 39, 0.18) 0%, transparent 45%),
+    radial-gradient(ellipse 85% 65% at 10% 95%, rgba(50, 57, 33, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 48% 42%, rgba(255, 255, 255, 0.35) 0%, transparent 60%),
+    linear-gradient(155deg, #b8b49e 0%, #cdc9bb 20%, #ddd9cc 45%, #c5c1b2 70%, #b0ac9e 100%);
+  box-shadow: 0 -14px 48px rgba(20, 20, 20, 0.14);
+}
+
+.home-panel--body::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(56px, 12vw);
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(74, 84, 46, 0.28);
+  pointer-events: none;
 }
 
 .home-hero__logo {
@@ -347,12 +378,9 @@ body {
 }
 
 .home-content {
-  position: relative;
-  z-index: 2;
   width: 100%;
   max-width: 720px;
   margin: 0 auto;
-  padding: 40px 4px 0;
   background: transparent;
 }
 
@@ -382,10 +410,20 @@ body {
 }
 
 @media (max-width: 899px) {
-  .home-hero {
+  .home-page {
+    width: calc(100% + 24px);
+    margin: 0 -12px;
+  }
+
+  .home-panel--hero {
     padding: 72px 12px 24px;
     min-height: 92vh;
     min-height: 92dvh;
+  }
+
+  .home-panel--body {
+    padding: 44px 16px 52px;
+    border-radius: 22px 22px 0 0;
   }
 
   .home-hero__slogan .hero-slogan__line--2 {
@@ -394,10 +432,6 @@ body {
 
   .home-hero__slogan .hero-slogan__line--3 {
     padding-left: 2rem;
-  }
-
-  .home-content {
-    padding-top: 28px;
   }
 }
 
