@@ -285,29 +285,31 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 84px 16px 32px;
+  padding: 84px 16px 24px;
   box-sizing: border-box;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse 75% 55% at 50% 42%,
-    rgba(249, 245, 239, 0.35) 0%,
-    transparent 68%
-  );
+  background: none;
+}
+
+.home-hero__stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: min(520px, 100%);
+  pointer-events: auto;
 }
 
 .home-hero__logo-wrap {
   position: relative;
-  width: min(520px, 100%);
-  max-width: 100%;
-  pointer-events: auto;
+  width: 100%;
   transform-origin: center center;
-  animation: home-logo-open 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: home-logo-open 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes home-logo-open {
   from {
     opacity: 0;
-    transform: scale(0.86) translateY(32px);
+    transform: scale(0.92) translateY(16px);
   }
   to {
     opacity: 1;
@@ -319,27 +321,25 @@ body {
   display: block;
   width: 100%;
   height: auto;
-  background: transparent;
 }
 
 .home-hero__overlay {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
-  padding: 48px 16px 18px;
+  bottom: 14%;
+  padding: 0 14px;
   text-align: center;
   background: none;
+  pointer-events: none;
 }
 
-.home-hero__overlay .hero-slogan__brand,
-.home-hero__overlay .hero-slogan__line,
-.home-hero__overlay .site-headline--hero,
-.home-hero__overlay .lead-text--hero {
-  text-shadow:
-    0 0 20px rgba(249, 245, 239, 0.95),
-    0 0 40px rgba(249, 245, 239, 0.75),
-    0 1px 2px rgba(255, 255, 255, 0.6);
+.home-hero__cta {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .home-content {
@@ -347,15 +347,9 @@ body {
   z-index: 2;
   width: 100%;
   max-width: 720px;
-  margin: -18vh auto 0;
-  padding: 28vh 4px 0;
-  background: linear-gradient(
-    180deg,
-    rgba(200, 196, 184, 0.97) 0%,
-    rgba(200, 196, 184, 0.92) 12%,
-    rgba(200, 196, 184, 0.55) 28%,
-    transparent 48%
-  );
+  margin: 0 auto;
+  padding: 40px 4px 0;
+  background: transparent;
 }
 
 .home-content .page-title,
@@ -385,18 +379,18 @@ body {
 
 @media (max-width: 899px) {
   .home-hero {
-    padding: 72px 12px 24px;
+    padding: 72px 12px 20px;
     min-height: 92vh;
     min-height: 92dvh;
   }
 
   .home-hero__overlay {
-    padding: 40px 12px 14px;
+    bottom: 12%;
+    padding: 0 10px;
   }
 
   .home-content {
-    margin-top: -14vh;
-    padding-top: 22vh;
+    padding-top: 28px;
   }
 }
 
@@ -410,7 +404,7 @@ body {
 
 /* Geanimeerde hero-slogan */
 .hero-slogan {
-  margin-bottom: 16px;
+  margin-bottom: 0;
   text-align: center;
 }
 
@@ -458,8 +452,8 @@ body {
   font-family: var(--font-display);
   line-height: 1.15;
   opacity: 0;
-  transform: translateY(18px);
-  animation: slogan-line-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform: translateY(12px);
+  animation: slogan-line-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .hero-slogan__line--1 {
@@ -467,22 +461,22 @@ body {
   font-style: italic;
   font-weight: 500;
   color: var(--olive);
-  animation-delay: 0.55s;
+  animation-delay: 0.2s;
 }
 
 .hero-slogan__line--2 {
-  font-size: clamp(1.65rem, 4.5vw, 2.35rem);
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
   font-weight: 600;
   color: var(--black);
-  animation-delay: 0.75s;
+  animation-delay: 0.32s;
 }
 
 .hero-slogan__line--3 {
-  font-size: clamp(1.35rem, 3.5vw, 1.85rem);
+  font-size: clamp(1.2rem, 3.2vw, 1.65rem);
   font-style: italic;
   font-weight: 500;
   color: var(--olive-dark);
-  animation-delay: 0.95s;
+  animation-delay: 0.44s;
 }
 
 .hero-slogan__highlight {
@@ -561,8 +555,8 @@ body {
   text-align: center;
   font-size: clamp(1.35rem, 3.5vw, 1.75rem);
   opacity: 0;
-  transform: translateY(12px);
-  animation: slogan-line-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.15s both;
+  transform: translateY(10px);
+  animation: slogan-line-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
 }
 
 .lead-text--hero {
@@ -571,7 +565,7 @@ body {
   margin: 0 auto;
   font-size: 0.98rem;
   opacity: 0;
-  animation: slogan-line-in 0.9s ease-out 1.35s both;
+  animation: slogan-line-in 0.5s ease-out 0.68s both;
 }
 
 @media (prefers-reduced-motion: reduce) {
