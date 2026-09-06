@@ -9,6 +9,7 @@ export default function WatWeBieden() {
       <div className="home-hero">
         <div className="home-hero__logo-wrap">
           <img src={logoImage} alt="" className="home-hero__logo" />
+          <div className="home-hero__logo-cover" aria-hidden="true" />
           <p className="home-hero__brand-in-logo">mimi padel</p>
           <div className="home-hero__overlay">
             <HeroSlogan hideBrand />
