@@ -21,7 +21,7 @@ export default function Trainingen() {
             betere padeller te maken.
           </p>
           <p>
-            Bij Mimipadel speel en oefen je altijd met gelijkwaardige spelers. Wij staan voor uitdagende,
+            Bij mimi padel speel en oefen je altijd met gelijkwaardige spelers. Wij staan voor uitdagende,
             op maat gemaakte sessies. Je krijgt les van toptrainers met de allerhoogste FITP-kwalificatie
             van de Italiaanse tennis- en padelfederatie. Zo haal je gegarandeerd het beste uit jezelf en
             word je een nóg betere padeller!

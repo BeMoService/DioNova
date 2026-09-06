@@ -15,7 +15,7 @@ export default function WieIsMimi() {
         <div className="page-body">
           <p>
             Mijn neefje was nog te klein om mij Mirjam te noemen, Mimi klonk hem beter. Sindsdien noemen
-            familie, vrienden en alle (padel) kennissen mij Mimi. Ik ben de oprichtster van Mimipadel en
+            familie, vrienden en alle (padel) kennissen mij Mimi. Ik ben de oprichtster van mimi padel en
             woon samen met mijn partner aan het Trasimenomeer middenin Umbrië in &ldquo;La dolce Vita
             Italia&rdquo;.
           </p>

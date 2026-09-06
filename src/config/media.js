@@ -25,3 +25,5 @@ export const mimiSecondaryImage = null;
 
 export const contactHeroImage = null;
 export const contactSecondaryImage = null;
+
+export const termsHeroImage = null;

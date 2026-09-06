@@ -6,7 +6,7 @@ export default function WatWeBieden() {
   return (
     <section className="section">
       <div className="site-hero">
-        <p className="site-slogan">Mimipadel ~ daar waar Padel en la dolce vita samenkomen.</p>
+        <p className="site-slogan">mimi padel ~ daar waar Padel en la dolce vita samenkomen.</p>
         <h1 className="site-headline">BOEK NU JOUW PADELREIS naar Italië.</h1>
         <p className="lead-text">
           Speel padel op de beste locaties en ontdek de heuvels tussen Umbrië en Toscane. Wij bieden de
@@ -26,7 +26,7 @@ export default function WatWeBieden() {
           <div className="page-body">
             <p>
               Een compleet verzorgde reis, zo simpel als het klinkt, zo uitgebreid als het voelt. Bij
-              Mimipadel staat een persoonlijke touch bovenaan, wij zullen er alles aan doen zodat jij een
+              mimi padel staat een persoonlijke touch bovenaan, wij zullen er alles aan doen zodat jij een
               onvergetelijke reis krijgt. Jouw ervaring staat centraal, wij bewegen wel mee. Of dit nou gaat
               om een extra padel les, die ene unieke leuke locale tip of juist het vervoer van en naar een
               wijnproeverij.

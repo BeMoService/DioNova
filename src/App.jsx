@@ -6,6 +6,7 @@ import Trainingen from "./pages/Trainingen.jsx";
 import Clubs from "./pages/Clubs.jsx";
 import WieIsMimi from "./pages/WieIsMimi.jsx";
 import Contact from "./pages/Contact.jsx";
+import AlgemeneVoorwaarden from "./pages/AlgemeneVoorwaarden.jsx";
 
 const PAGE_BY_PATH = {
   "/": "aanbod",
@@ -14,6 +15,7 @@ const PAGE_BY_PATH = {
   "/clubs": "clubs",
   "/mimi": "mimi",
   "/contact": "contact",
+  "/voorwaarden": "voorwaarden",
 };
 
 export default function App() {
@@ -37,14 +39,15 @@ export default function App() {
     { to: "#/clubs", label: "Onze clubs" },
     { to: "#/mimi", label: "Wie is Mimi" },
     { to: "#/contact", label: "Contactgegevens" },
+    { to: "#/voorwaarden", label: "Algemene voorwaarden", legal: true },
   ];
 
   return (
     <div className="app-shell">
       <header className="site-header">
         <div className="header-inner container">
-          <div className="brand-slot" aria-label="MiMipadel">
-            <span className="brand-name">MiMipadel</span>
+          <div className="brand-slot" aria-label="mimi padel">
+            <span className="brand-name">mimi padel</span>
           </div>
 
           <button
@@ -75,8 +78,8 @@ export default function App() {
         </button>
 
         <nav className="drawer-nav">
-          {links.map(({ to, label }) => (
-            <a key={to} href={to} onClick={close}>
+          {links.map(({ to, label, legal }) => (
+            <a key={to} href={to} onClick={close} className={legal ? "drawer-link--legal" : undefined}>
               {label}
             </a>
           ))}
@@ -91,6 +94,7 @@ export default function App() {
           <Route path="/clubs" element={<Clubs />} />
           <Route path="/mimi" element={<WieIsMimi />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/voorwaarden" element={<AlgemeneVoorwaarden />} />
         </Routes>
       </main>
 
@@ -98,7 +102,7 @@ export default function App() {
         <span className="copyright-badge" aria-hidden="true">
           ©
         </span>
-        <span>MiMipadel</span>
+        <span>mimi padel</span>
       </footer>
     </div>
   );
