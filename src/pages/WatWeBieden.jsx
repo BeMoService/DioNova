@@ -2,18 +2,22 @@ import MediaFrame from "../components/MediaFrame.jsx";
 import { SecondaryMedia } from "../components/PageSideContent.jsx";
 import HeroSlogan from "../components/HeroSlogan.jsx";
 import { homeHeroImage, homeSecondaryImage } from "../config/media.js";
+import logoImage from "../assets/mimipadel-logo.png";
 
 export default function WatWeBieden() {
   return (
     <section className="section">
-      <div className="site-hero">
-        <HeroSlogan />
-        <h1 className="site-headline site-headline--hero">BOEK NU JOUW PADELREIS naar Italië.</h1>
-        <p className="lead-text lead-text--hero">
-          Speel padel op de beste locaties en ontdek de heuvels tussen Umbrië en Toscane. Wij bieden de
-          beste faciliteiten, werken samen met gekwalificeerde trainers en staan voor passie gecombineerd
-          met het fijne Italiaanse leven.
-        </p>
+      <div className="site-hero site-hero--logo">
+        <img src={logoImage} alt="" className="site-hero__logo" aria-hidden="true" />
+        <div className="site-hero__overlay">
+          <HeroSlogan />
+          <h1 className="site-headline site-headline--hero">BOEK NU JOUW PADELREIS naar Italië.</h1>
+          <p className="lead-text lead-text--hero">
+            Speel padel op de beste locaties en ontdek de heuvels tussen Umbrië en Toscane. Wij bieden de
+            beste faciliteiten, werken samen met gekwalificeerde trainers en staan voor passie gecombineerd
+            met het fijne Italiaanse leven.
+          </p>
+        </div>
       </div>
 
       <div className="grid grid-2">
