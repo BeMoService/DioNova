@@ -297,23 +297,21 @@ body {
   max-width: 100%;
   transform-origin: center center;
   animation: home-logo-open 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
-  background: #f9f5ef;
-  padding: 8px 12px 14px;
-}
-
-@keyframes home-logo-open {
-  from {
-    opacity: 0;
-    transform: scale(0.92) translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
 }
 
 .home-hero__logo-art {
   position: relative;
+}
+
+.home-hero__slogan-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1%;
+  padding: 0 14px;
+  z-index: 3;
+  text-align: center;
+  pointer-events: none;
 }
 
 .home-hero__logo {
@@ -345,8 +343,15 @@ body {
   animation: slogan-brand-in 0.45s ease-out both, slogan-shimmer 5s ease-in-out 0.8s infinite;
 }
 
-.home-hero__logo-wrap .hero-slogan {
-  padding-top: 10px;
+@keyframes home-logo-open {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .home-hero__intro {
@@ -401,12 +406,12 @@ body {
     min-height: 92dvh;
   }
 
-  .home-hero__logo-wrap {
-    padding: 6px 10px 12px;
-  }
-
   .home-hero__brand-in-logo {
     top: 4%;
+  }
+
+  .home-hero__slogan-overlay {
+    padding: 0 10px;
   }
 
   .home-content {

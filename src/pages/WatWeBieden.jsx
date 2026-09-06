@@ -11,8 +11,10 @@ export default function WatWeBieden() {
           <div className="home-hero__logo-art">
             <img src={logoImage} alt="" className="home-hero__logo" />
             <p className="home-hero__brand-in-logo">mimi padel</p>
+            <div className="home-hero__slogan-overlay">
+              <HeroSlogan hideBrand />
+            </div>
           </div>
-          <HeroSlogan hideBrand />
         </div>
 
         <div className="home-hero__intro">
