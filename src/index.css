@@ -314,24 +314,11 @@ body {
   display: block;
   width: 100%;
   height: auto;
-  clip-path: inset(0 0 14% 0);
-}
-
-/* Bedekt ingebakken Mimi PADEL krulletters in het logo */
-.home-hero__logo-cover {
-  position: absolute;
-  left: 7%;
-  right: 7%;
-  top: 41%;
-  height: 24%;
-  background: #f9f5ef;
-  z-index: 2;
-  pointer-events: none;
 }
 
 .home-hero__brand-in-logo {
   position: absolute;
-  top: 10%;
+  top: 7%;
   left: 0;
   right: 0;
   z-index: 3;
@@ -356,16 +343,10 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 14%;
-  padding: 6px 16px 12px;
+  bottom: 0;
+  padding: 6px 16px 10px;
   z-index: 3;
   text-align: center;
-  background: linear-gradient(
-    to top,
-    rgba(249, 245, 239, 0.98) 0%,
-    rgba(249, 245, 239, 0.9) 50%,
-    transparent 100%
-  );
 }
 
 .home-hero__intro {
@@ -425,12 +406,7 @@ body {
   }
 
   .home-hero__brand-in-logo {
-    top: 9%;
-  }
-
-  .home-hero__logo-cover {
-    top: 40%;
-    height: 25%;
+    top: 6%;
   }
 
   .home-content {
