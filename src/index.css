@@ -265,7 +265,7 @@ body {
   overflow: hidden;
 }
 
-/* Home — sticky hero (paneel 1) + scroll-over content (paneel 2) */
+/* Home — fixed hero (paneel 1) + scroll-over sheet (paneel 2) */
 .home-page {
   position: relative;
   width: calc(100% + 40px);
@@ -279,11 +279,9 @@ body {
 }
 
 .home-panel--hero {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  inset: 0;
   z-index: 0;
-  min-height: 100vh;
-  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -291,14 +289,31 @@ body {
   gap: 20px;
   padding: 84px 16px 32px;
   box-sizing: border-box;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.home-panel--hero * {
+  pointer-events: auto;
+}
+
+.home-panel--spacer {
+  height: 100vh;
+  height: 100dvh;
+  flex-shrink: 0;
+  pointer-events: none;
 }
 
 .home-panel--body {
   position: relative;
   z-index: 2;
-  margin-top: -1px;
+  min-height: 100vh;
+  min-height: 100dvh;
   padding: 52px 24px 64px;
-  border-radius: 28px 28px 0 0;
+  border-radius: 32px 32px 0 0;
+  transform-origin: top center;
+  will-change: transform;
   background:
     radial-gradient(ellipse 95% 75% at 5% 10%, rgba(74, 84, 46, 0.58) 0%, transparent 52%),
     radial-gradient(ellipse 70% 55% at 95% 5%, rgba(201, 162, 39, 0.25) 0%, transparent 48%),
@@ -306,7 +321,9 @@ body {
     radial-gradient(ellipse 85% 65% at 10% 95%, rgba(50, 57, 33, 0.5) 0%, transparent 50%),
     radial-gradient(ellipse 50% 40% at 48% 42%, rgba(255, 255, 255, 0.35) 0%, transparent 60%),
     linear-gradient(155deg, #b8b49e 0%, #cdc9bb 20%, #ddd9cc 45%, #c5c1b2 70%, #b0ac9e 100%);
-  box-shadow: 0 -14px 48px rgba(20, 20, 20, 0.14);
+  box-shadow:
+    0 -20px 60px rgba(20, 20, 20, 0.22),
+    0 -4px 0 rgba(201, 162, 39, 0.35);
 }
 
 .home-panel--body::before {
@@ -417,13 +434,11 @@ body {
 
   .home-panel--hero {
     padding: 72px 12px 24px;
-    min-height: 92vh;
-    min-height: 92dvh;
   }
 
   .home-panel--body {
     padding: 44px 16px 52px;
-    border-radius: 22px 22px 0 0;
+    border-radius: 24px 24px 0 0;
   }
 
   .home-hero__slogan .hero-slogan__line--2 {

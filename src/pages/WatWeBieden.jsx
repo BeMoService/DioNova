@@ -1,12 +1,59 @@
+import { useEffect, useRef } from "react";
 import { SecondaryMedia } from "../components/PageSideContent.jsx";
 import HeroSlogan from "../components/HeroSlogan.jsx";
 import { homeSecondaryImage } from "../config/media.js";
 import logoImage from "../assets/mimipadel-logo.png";
 
 export default function WatWeBieden() {
+  const pageRef = useRef(null);
+  const heroRef = useRef(null);
+  const sheetRef = useRef(null);
+
+  useEffect(() => {
+    const page = pageRef.current;
+    const hero = heroRef.current;
+    const sheet = sheetRef.current;
+    if (!page || !hero || !sheet) return;
+
+    const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const update = () => {
+      const vh = window.innerHeight;
+      const pageBottom = page.getBoundingClientRect().bottom;
+      const sheetTop = sheet.getBoundingClientRect().top;
+      const progress = Math.min(1, Math.max(0, 1 - sheetTop / vh));
+
+      if (pageBottom <= 0) {
+        hero.style.visibility = "hidden";
+        return;
+      }
+
+      hero.style.visibility = "visible";
+
+      if (motionOk) {
+        hero.style.opacity = String(1 - progress * 0.45);
+        hero.style.transform = `scale(${1 - progress * 0.07})`;
+        sheet.style.transform = `translateY(${(1 - progress) * 64}px) scale(${0.9 + progress * 0.1})`;
+      } else {
+        hero.style.opacity = "1";
+        hero.style.transform = "none";
+        sheet.style.transform = "none";
+      }
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
   return (
-    <section className="home-page section">
-      <div className="home-panel home-panel--hero">
+    <section ref={pageRef} className="home-page section">
+      <div ref={heroRef} className="home-panel home-panel--hero">
         <div className="home-hero__logo">
           <img src={logoImage} alt="" className="home-hero__logo-img" />
         </div>
@@ -24,7 +71,9 @@ export default function WatWeBieden() {
         </div>
       </div>
 
-      <div className="home-panel home-panel--body home-content">
+      <div className="home-panel home-panel--spacer" aria-hidden="true" />
+
+      <div ref={sheetRef} className="home-panel home-panel--body home-content">
         <h2 className="page-title">Wat we bieden</h2>
 
         <div className="page-body">
