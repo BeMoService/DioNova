@@ -8,11 +8,11 @@ export default function WatWeBieden() {
     <section className="home-page section">
       <div className="home-hero">
         <div className="home-hero__logo-wrap">
-          <img src={logoImage} alt="" className="home-hero__logo" />
-          <p className="home-hero__brand-in-logo">mimi padel</p>
-          <div className="home-hero__overlay">
-            <HeroSlogan hideBrand />
+          <div className="home-hero__logo-art">
+            <img src={logoImage} alt="" className="home-hero__logo" />
+            <p className="home-hero__brand-in-logo">mimi padel</p>
           </div>
+          <HeroSlogan hideBrand />
         </div>
 
         <div className="home-hero__intro">
