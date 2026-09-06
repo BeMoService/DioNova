@@ -200,19 +200,9 @@ body {
 
 .app-shell > header,
 .app-shell > main,
-.app-shell > footer,
-.app-shell > .scrim,
-.app-shell > .drawer {
+.app-shell > footer {
   position: relative;
   z-index: 1;
-}
-
-.scrim,
-.drawer {
-  z-index: 60;
-}
-.drawer.open {
-  z-index: 70;
 }
 
 .container { max-width: 1024px; margin: 0 auto; padding: 0 24px; }
@@ -522,6 +512,9 @@ body {
   border-left: 1px solid rgba(201, 162, 39, 0.2);
 }
 .drawer.open { transform: translateX(0); }
+.drawer:not(.open) {
+  pointer-events: none;
+}
 .drawer-nav { display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .drawer a {
   padding: 14px 12px;
