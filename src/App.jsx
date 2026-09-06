@@ -7,6 +7,7 @@ import Clubs from "./pages/Clubs.jsx";
 import WieIsMimi from "./pages/WieIsMimi.jsx";
 import Contact from "./pages/Contact.jsx";
 import AlgemeneVoorwaarden from "./pages/AlgemeneVoorwaarden.jsx";
+import BackgroundShapes from "./components/BackgroundShapes.jsx";
 
 const PAGE_BY_PATH = {
   "/": "aanbod",
@@ -44,6 +45,7 @@ export default function App() {
 
   return (
     <div className="app-shell">
+      <BackgroundShapes />
       <header className="site-header">
         <div className="header-inner container">
           <div className="brand-slot" aria-label="mimi padel">
