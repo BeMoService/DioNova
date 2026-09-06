@@ -1,6 +1,7 @@
 export default function HeroSlogan() {
   return (
     <div className="hero-slogan" aria-label="mimi padel — daar waar Padel en la dolce vita samenkomen">
+      <p className="hero-slogan__brand">mimi padel</p>
       <div className="hero-slogan__rule" aria-hidden="true" />
 
       <p className="hero-slogan__text">
