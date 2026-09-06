@@ -425,7 +425,12 @@ body {
   }
 
   .home-hero__brand-in-logo {
-    top: 48%;
+    top: 9%;
+  }
+
+  .home-hero__logo-cover {
+    top: 40%;
+    height: 25%;
   }
 
   .home-content {
