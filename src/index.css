@@ -1,6 +1,6 @@
 /* Reset */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body, #root { min-height: 100%; }
+html, body, #root { min-height: 100%; overflow-x: hidden; }
 a { color: inherit; text-decoration: none; }
 
 /* mimi padel — olijfgroen, goud, zwart, wit */
@@ -215,7 +215,6 @@ body {
   align-self: stretch;
   padding: 0 20px 48px;
   box-sizing: border-box;
-  overflow-x: clip;
 }
 
 .grid {
@@ -266,13 +265,10 @@ body {
   overflow: hidden;
 }
 
-/* Home — full-screen hero + scroll-over content sheet */
+/* Home — sticky logo hero + scroll-over content (geen witte vlakken) */
 .home-page {
   position: relative;
-  width: 100vw;
-  max-width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  width: 100%;
   padding-bottom: 48px;
 }
 
@@ -287,88 +283,80 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  padding: 88px 24px 72px;
-  text-align: center;
+  padding: 84px 16px 48px;
   box-sizing: border-box;
+}
+
+.home-hero__logo-wrap {
+  position: relative;
+  width: min(520px, 100%);
+  max-width: 100%;
 }
 
 .home-hero__logo {
   display: block;
-  width: min(380px, 78vw);
+  width: 100%;
   height: auto;
-  filter: drop-shadow(0 16px 32px rgba(20, 20, 20, 0.12));
 }
 
-.home-hero__intro {
-  width: min(640px, 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
+.home-hero__overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 52px 18px 22px;
+  text-align: center;
+  background: linear-gradient(
+    to top,
+    rgba(249, 245, 239, 0.98) 0%,
+    rgba(249, 245, 239, 0.9) 42%,
+    rgba(249, 245, 239, 0.45) 72%,
+    transparent 100%
+  );
 }
 
-.home-content-sheet {
+.home-content {
   position: relative;
   z-index: 2;
-  width: min(720px, calc(100% - 32px));
-  margin: -48px auto 0;
-  padding: 36px 28px 44px;
-  border-radius: 24px 24px 16px 16px;
-  background: rgba(249, 245, 239, 0.92);
-  backdrop-filter: blur(18px) saturate(1.15);
-  -webkit-backdrop-filter: blur(18px) saturate(1.15);
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  box-shadow:
-    0 -20px 48px rgba(20, 20, 20, 0.1),
-    0 8px 32px rgba(20, 20, 20, 0.06);
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 4px 0;
+  background: transparent;
 }
 
-.home-content-sheet .page-title {
+.home-content .page-title {
   margin-bottom: 4px;
 }
 
-.home-content-sheet .page-body {
-  margin-top: 8px;
+.home-content .secondary-media {
+  margin-top: 24px;
 }
 
-.home-content-sheet .secondary-media {
-  margin-top: 20px;
+.feature-list--plain li {
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  padding: 10px 0 10px 28px;
 }
 
 @media (max-width: 899px) {
   .home-hero {
-    padding: 76px 18px 64px;
+    padding: 72px 12px 40px;
     min-height: 92vh;
     min-height: 92dvh;
   }
 
-  .home-content-sheet {
-    width: calc(100% - 24px);
-    padding: 28px 20px 36px;
-    margin-top: -36px;
+  .home-hero__overlay {
+    padding: 44px 14px 18px;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .home-content-sheet {
-    animation: home-sheet-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 35%;
-  }
-}
-
-@keyframes home-sheet-rise {
-  from {
-    transform: translateY(48px);
-    opacity: 0.88;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
+  .home-content {
+    padding-top: 32px;
   }
 }
 

@@ -7,19 +7,21 @@ export default function WatWeBieden() {
   return (
     <section className="home-page section">
       <div className="home-hero">
-        <img src={logoImage} alt="" className="home-hero__logo" />
-        <div className="home-hero__intro">
-          <HeroSlogan />
-          <h1 className="site-headline site-headline--hero">BOEK NU JOUW PADELREIS naar Italië.</h1>
-          <p className="lead-text lead-text--hero">
-            Speel padel op de beste locaties en ontdek de heuvels tussen Umbrië en Toscane. Wij bieden de
-            beste faciliteiten, werken samen met gekwalificeerde trainers en staan voor passie gecombineerd
-            met het fijne Italiaanse leven.
-          </p>
+        <div className="home-hero__logo-wrap">
+          <img src={logoImage} alt="" className="home-hero__logo" />
+          <div className="home-hero__overlay">
+            <HeroSlogan />
+            <h1 className="site-headline site-headline--hero">BOEK NU JOUW PADELREIS naar Italië.</h1>
+            <p className="lead-text lead-text--hero">
+              Speel padel op de beste locaties en ontdek de heuvels tussen Umbrië en Toscane. Wij bieden de
+              beste faciliteiten, werken samen met gekwalificeerde trainers en staan voor passie gecombineerd
+              met het fijne Italiaanse leven.
+            </p>
+          </div>
         </div>
       </div>
 
-      <div className="home-content-sheet">
+      <div className="home-content">
         <h2 className="page-title">Wat we bieden</h2>
 
         <div className="page-body">
@@ -31,7 +33,7 @@ export default function WatWeBieden() {
             wijnproeverij.
           </p>
 
-          <ul className="feature-list">
+          <ul className="feature-list feature-list--plain">
             <li>Minimaal 1,5 training per dag.</li>
             <li>
               Verblijf in een hotel inclusief ontbijt, pal aan het prachtige Lago di Trasimeno, mét zwembad.
@@ -42,7 +44,7 @@ export default function WatWeBieden() {
           </ul>
 
           <h3 className="page-subtitle">Persoonlijke touch?</h3>
-          <ul className="feature-list">
+          <ul className="feature-list feature-list--plain">
             <li>Op maat gemaakte excursie? Jij roept, wij draaien.</li>
             <li>Verblijven in een villa? Regelen wij voor je.</li>
             <li>Mee op reis zonder te paddelen? Vraag naar de korting.</li>
