@@ -307,7 +307,7 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 1%;
+  bottom: 19%;
   padding: 0 14px;
   z-index: 3;
   text-align: center;
@@ -411,6 +411,7 @@ body {
   }
 
   .home-hero__slogan-overlay {
+    bottom: 18%;
     padding: 0 10px;
   }
 
