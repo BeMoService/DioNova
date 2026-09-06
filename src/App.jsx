@@ -40,7 +40,7 @@ export default function App() {
     { to: "#/clubs", label: "Onze clubs" },
     { to: "#/mimi", label: "Wie is Mimi" },
     { to: "#/contact", label: "Contactgegevens" },
-    { to: "#/voorwaarden", label: "Algemene voorwaarden", legal: true },
+    { to: "#/voorwaarden", label: "Algemene voorwaarden" },
   ];
 
   return (
@@ -80,8 +80,8 @@ export default function App() {
         </button>
 
         <nav className="drawer-nav">
-          {links.map(({ to, label, legal }) => (
-            <a key={to} href={to} onClick={close} className={legal ? "drawer-link--legal" : undefined}>
+          {links.map(({ to, label }) => (
+            <a key={to} href={to} onClick={close}>
               {label}
             </a>
           ))}

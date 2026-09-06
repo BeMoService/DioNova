@@ -515,7 +515,7 @@ body {
 .drawer:not(.open) {
   pointer-events: none;
 }
-.drawer-nav { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.drawer-nav { display: flex; flex-direction: column; gap: 10px; }
 .drawer a {
   padding: 14px 12px;
   border-radius: 10px;
@@ -527,12 +527,6 @@ body {
   border-color: var(--gold);
   color: var(--gold-light);
   background: rgba(201, 162, 39, 0.1);
-}
-.drawer-link--legal {
-  margin-top: auto;
-  font-size: 0.92rem;
-  opacity: 0.85;
-  border-style: dashed;
 }
 
 .section {
