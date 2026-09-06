@@ -7,16 +7,10 @@ export default function WatWeBieden() {
   return (
     <section className="home-page section">
       <div className="home-hero">
-        <div className="home-hero__stack">
-          <p className="home-hero__brand">mimi padel</p>
-          <div className="home-hero__logo-wrap">
-            <img src={logoImage} alt="" className="home-hero__logo" />
-            <div className="home-hero__overlay">
-              <HeroSlogan hideBrand />
-            </div>
-          </div>
-
-          <div className="home-hero__cta">
+        <div className="home-hero__logo-wrap">
+          <img src={logoImage} alt="" className="home-hero__logo" />
+          <div className="home-hero__overlay">
+            <HeroSlogan />
             <h1 className="site-headline site-headline--hero">BOEK NU JOUW PADELREIS naar Italië.</h1>
             <p className="lead-text lead-text--hero">
               Speel padel op de beste locaties en ontdek de heuvels tussen Umbrië en Toscane. Wij bieden de
