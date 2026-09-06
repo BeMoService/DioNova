@@ -9,13 +9,12 @@ export default function WatWeBieden() {
       <div className="home-hero">
         <div className="home-hero__logo">
           <img src={logoImage} alt="" className="home-hero__logo-img" />
-          <p className="home-hero__logo-brand">mimi padel</p>
-          <div className="home-hero__logo-slogan">
-            <HeroSlogan hideBrand />
-          </div>
         </div>
 
         <div className="home-hero__intro">
+          <div className="home-hero__slogan">
+            <HeroSlogan hideBrand />
+          </div>
           <h1 className="site-headline site-headline--hero">BOEK NU JOUW PADELREIS naar Italië.</h1>
           <p className="lead-text lead-text--hero">
             Speel padel op de beste locaties en ontdek de heuvels tussen Umbrië en Toscane. Wij bieden de

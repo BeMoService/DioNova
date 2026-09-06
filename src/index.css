@@ -292,7 +292,6 @@ body {
 }
 
 .home-hero__logo {
-  position: relative;
   width: min(420px, 92vw);
   max-width: 100%;
 }
@@ -303,53 +302,48 @@ body {
   height: auto;
 }
 
-.home-hero__logo-brand {
-  position: absolute;
-  top: 4.5%;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  margin: 0;
-  text-align: center;
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3.6vw, 1.95rem);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  line-height: 1;
-  text-transform: lowercase;
-  background: linear-gradient(120deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.home-hero__logo-slogan {
-  position: absolute;
-  top: 59%;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  padding: 0 10px;
-  text-align: center;
-  background: none;
-  pointer-events: none;
-}
-
-.home-hero__logo-slogan .hero-slogan__line {
-  opacity: 1;
-  transform: none;
-  animation: none;
-}
-
 .home-hero__intro {
   width: min(640px, 100%);
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   padding: 0 8px;
   background: transparent;
+}
+
+.home-hero__slogan {
+  width: 100%;
+  text-align: center;
+}
+
+.home-hero__slogan .hero-slogan__text {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.home-hero__slogan .hero-slogan__line {
+  opacity: 1;
+  transform: none;
+  animation: none;
+  text-align: left;
+}
+
+.home-hero__slogan .hero-slogan__line--1 {
+  font-size: clamp(1.3rem, 3.4vw, 1.65rem);
+  padding-left: 0;
+}
+
+.home-hero__slogan .hero-slogan__line--2 {
+  font-size: clamp(1.75rem, 4.8vw, 2.45rem);
+  padding-left: 1.25rem;
+}
+
+.home-hero__slogan .hero-slogan__line--3 {
+  font-size: clamp(1.4rem, 3.6vw, 1.85rem);
+  padding-left: 2.5rem;
 }
 
 .home-content {
@@ -394,23 +388,16 @@ body {
     min-height: 92dvh;
   }
 
-  .home-hero__logo-brand {
-    top: 4%;
+  .home-hero__slogan .hero-slogan__line--2 {
+    padding-left: 1rem;
   }
 
-  .home-hero__logo-slogan {
-    top: 58%;
-    padding: 0 8px;
+  .home-hero__slogan .hero-slogan__line--3 {
+    padding-left: 2rem;
   }
 
   .home-content {
     padding-top: 28px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .home-hero__logo-brand {
-    opacity: 1;
   }
 }
 
